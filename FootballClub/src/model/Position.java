@@ -7,8 +7,9 @@ package model;
 import java.util.*;
 
 public enum Position{
-  GoalKeeper,
-  Defence,
-  Midfielder,
-  Forward;
+  GOALKEEPER,
+  DEFENCE,
+  MIDFIELDER,
+  FORWARD,
+  DEFAULT;
 }

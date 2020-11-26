@@ -7,8 +7,9 @@ package model;
 import java.util.*;
 
 public enum Expertise{
-  Offensive,
-  Defensive,
-  Possession,
-  LaboratoryPlays;
+  OFFENSIVE,
+  DEFENSIVE,
+  POSSESSION,
+  LABORATORYPLAYS,
+  DEFAULT;
 }

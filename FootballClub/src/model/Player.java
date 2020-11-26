@@ -10,15 +10,15 @@ public class Player extends Employee implements CalculateOperation{
 
   private int dorsal;
   private int amountGoal;
-  private avergae double;
+  private double average;
   private Position position;
 
-  public Player(String nameEm, int idEm, int salary, boolean status, int dorsal, int amountGoal, double avergae, Position position){
+  public Player(String nameEm, int idEm, int salary, boolean status, int dorsal, int amountGoal, double average, Position position){
     super(nameEm, idEm, salary, status);
     this.dorsal = dorsal;
     this.amountGoal = amountGoal;
-    this.avergae = avergae;
-    this.position = position;
+    this.average = average;
+    this.position = Position.DEFAULT;
   }
 
   public int getDorsal(){
@@ -38,11 +38,11 @@ public class Player extends Employee implements CalculateOperation{
   }
 
   public double getAverage(){
-    return avergae;
+    return average;
   }
 
   public void setAverage(double avergae){
-    this.avergae = avergae;
+    this.average = average;
   }
 
   public Position getPosition(){

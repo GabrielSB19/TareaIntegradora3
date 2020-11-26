@@ -10,6 +10,9 @@ import java.util.*;
 
 public class Main{
   public static void main(String [] args){
-    System.out.println("Xd");
+    Menu.WelcomeToTheClub();
+    Menu m;
+    m = new Menu();
+    m.startProgram();
   }
 }

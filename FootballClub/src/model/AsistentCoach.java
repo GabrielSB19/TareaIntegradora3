@@ -14,7 +14,7 @@ public class AsistentCoach extends Coach{
   public AsistentCoach(String nameEm, int idEm, int salary, boolean status, int yearExperience, boolean playerProfesional, Expertise expertise){
     super(nameEm, idEm, salary, status, yearExperience);
     this.playerProfesional = playerProfesional;
-    this.expertise = expertise;
+    this.expertise = Expertise.DEFAULT;
   }
 
   public boolean getPlayerProfesional(){
