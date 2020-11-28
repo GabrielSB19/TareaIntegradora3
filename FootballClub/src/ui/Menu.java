@@ -12,6 +12,8 @@ public class Menu{
 
   private static final int ADDEMPLOYEE = 1;
   private static final int REMOVEEMPLOYEE = 2;
+  private static final int ADDTEAM = 3;
+  private static final int ADDEMPLOYEETOTEAM = 4;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -28,6 +30,8 @@ public class Menu{
     System.out.println("Selecciona la opcion que deseas realizar");
     System.out.println("[1] Contratar un empleado al club");
     System.out.println("[2] Despedir un empleado del club");
+    System.out.println("[3] Agregar un equipo (Solo se podran agregar 2)");
+    System.out.println("[4] Agregar empleados a un equipo");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -49,6 +53,12 @@ public class Menu{
       doOperationRemoveEmployee(readOption());
       selectionEmployeeRemove();
       break;
+      case ADDTEAM:
+      addNewTeam();
+      break;
+      case ADDEMPLOYEETOTEAM:
+      doOperationAddEmployeeToTeam();
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -63,11 +73,11 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 4);
+    } while(option != 6);
   }
 
   public void showDoOperationEmployee(){
-    System.out.println("Selecciona el tipo de empleado que deseas crear");
+    System.out.println("Selecciona el tipo de empleado que deseas agregar");
     System.out.println("[1] Entrenador principal");
     System.out.println("[2] Entrenador asistente");
     System.out.println("[3] Jugador");
@@ -243,6 +253,7 @@ public class Menu{
     System.out.println("[1] Entrenador principal");
     System.out.println("[2] Entrenador asistente");
     System.out.println("[3] Jugador");
+    System.out.println("En caso de que no existan empleados presiona la tecla Enter");
   }
 
   public void doOperationRemoveEmployee(int choice){
@@ -267,4 +278,53 @@ public class Menu{
     System.out.println(myClub.removeEmployee(name));
   }
 
+  public void addNewTeam(){
+    System.out.println("Ingresa el nombre del equipo que deseas crear");
+    String nameTeam = sc.nextLine();
+    System.out.println(myClub.addTeam(nameTeam));
+  }
+
+  public void doOperationAddEmployeeToTeam(){
+    System.out.println("A cual equipo le deseas agregar un empleado");
+    System.out.print(myClub.showNameNewTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    showDoOperationEmployee();
+    int choice = sc.nextInt();
+    sc.nextLine();
+    switch(choice){
+      case 1:
+      System.out.println(myClub.addMainCoachToTheTeam(index1, addMainCoachTeam()));
+      break;
+      case 2:
+      System.out.println(myClub.addAsistentCoachToTheTeam(index1, addAsistentCoachTeam()));
+      break;
+      case 3:
+      System.out.println(myClub.addPlayerToTheTeam(index1, addPlayerTeam()));
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  public int addMainCoachTeam(){
+    System.out.println("Que entrendor principal deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showNameOptionMainCoachTeam());
+    int index2 = sc.nextInt()-1;
+    return index2;
+  }
+
+  public int addAsistentCoachTeam(){
+    System.out.println("Que entrenador asistente deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showNameOptionAsistenCoachTeam());
+    int index3 = sc.nextInt()-1;
+    return index3;
+  }
+
+  public int addPlayerTeam(){
+    System.out.println("Que jugador deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showNameOptionPlayer());
+    int index4 = sc.nextInt()-1;
+    return index4;
+  }
 }
