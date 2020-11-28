@@ -232,5 +232,13 @@ public class FootballClub{
     return msg;
   }
 
-
+  public String uptadeDataAsistenCoachProcess(int index1, int salary, boolean status, int yearExperience, boolean playerProfesional, Expertise expertise){
+    arrayAsistentCoach.get(index1).setSalary(salary);
+    arrayAsistentCoach.get(index1).setStatus(status);
+    arrayAsistentCoach.get(index1).setYearExperience(yearExperience);
+    arrayAsistentCoach.get(index1).setPlayerProfesional(playerProfesional);
+    arrayAsistentCoach.get(index1).setExpertise(expertise);
+    String msg = "La informacion del entrenador asistente se ha actualizado";
+    return msg;
+  }
 }

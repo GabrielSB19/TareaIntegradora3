@@ -371,5 +371,25 @@ public class Menu{
     int amountWinner = sc.nextInt();
     sc.nextLine();
     System.out.println(myClub.uptadeDataMainCoachProcess(index1, salary, status, yearExperience, amountTeam, amountWinner));
-  }  
+  }
+
+  public void uptadeDataAsistenCoach(){
+    System.out.println("No podras actualizar el nombre ni el ID del entrenador asistente");
+    System.out.print(myClub.showNameOptionAsistenCoachTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    System.out.println("Actualiza el salario del entrenador asistente");
+    int salary = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza el estado del entrenador asistente");
+    boolean status = optionStatus();
+    System.out.println("Ingresa los anios de experiencia del entrenador asistente");
+    int yearExperience = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Acutaliza la siguiente informacion del entrenador asistente: ");
+    boolean playerProfesional = wasProfesioanl();
+    System.out.println("Actualiza la expertisia del entrenador");
+    Expertise expertise = addExpertiseAsistentCoach();
+    System.out.println(myClub.uptadeDataAsistenCoachProcess(index1, salary, status, yearExperience, playerProfesional, expertise));
+  }
 }
