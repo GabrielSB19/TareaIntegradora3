@@ -241,4 +241,15 @@ public class FootballClub{
     String msg = "La informacion del entrenador asistente se ha actualizado";
     return msg;
   }
+
+  public String uptadeDataPlayerProcess(int index1, int salary, boolean status, int dorsal, int amountGoal, double average, Position position){
+    arrayPlayer.get(index1).setSalary(salary);
+    arrayPlayer.get(index1).setStatus(status);
+    arrayPlayer.get(index1).setDorsal(dorsal);
+    arrayPlayer.get(index1).setAmountGoal(amountGoal);
+    arrayPlayer.get(index1).setAverage(average);
+    arrayPlayer.get(index1).setPosition(position);
+    String msg = "La informacion del jugador se ha actualizado";
+    return msg;
+  }
 }

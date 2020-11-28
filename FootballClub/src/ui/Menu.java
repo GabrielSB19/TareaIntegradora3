@@ -340,10 +340,10 @@ public class Menu{
       uptadeDataMainCoach();
       break;
       case 2:
-      System.out.println("xd");
+      uptadeDataAsistenCoach();
       break;
       case 3:
-      System.out.println("xd");
+      uptadeDataPlayer();
       break;
       default:
       System.out.println("Ingresa una opcion valida");
@@ -391,5 +391,29 @@ public class Menu{
     System.out.println("Actualiza la expertisia del entrenador");
     Expertise expertise = addExpertiseAsistentCoach();
     System.out.println(myClub.uptadeDataAsistenCoachProcess(index1, salary, status, yearExperience, playerProfesional, expertise));
+  }
+
+  public void uptadeDataPlayer(){
+    System.out.println("No podras actualizar el nombre ni el ID del jugador");
+    System.out.print(myClub.showNameOptionPlayer());
+    int index1 = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualia el salario del jugador");
+    int salary = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza el estado del jugador");
+    boolean status = optionStatus();
+    System.out.println("Actualiza el numero de camisa del jugador");
+    int dorsal = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza la cantidad de goles que ha marcado el jugador");
+    int amountGoal = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza la calificacion del jugador");
+    double average = sc.nextDouble();
+    sc.nextLine();
+    System.out.println("Actualiza la posicion del jugador");
+    Position position = addPositionPlayer();
+    System.out.println(myClub.uptadeDataPlayerProcess(index1, salary, status, dorsal, amountGoal, average, position));
   }
 }
