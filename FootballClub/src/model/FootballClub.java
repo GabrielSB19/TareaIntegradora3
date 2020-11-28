@@ -222,4 +222,15 @@ public class FootballClub{
   public String addPlayerToTheTeam(int index1, int index4){
     return team[index1].addPlayerInTeam(arrayPlayer.get(index4));
   }
+
+  public String uptadeDataMainCoachProcess(int index1, int salary, boolean status, int yearExperience, int amountTeam, int amountWinner){
+    arrayMainCoach.get(index1).setSalary(salary);
+    arrayMainCoach.get(index1).setYearExperience(yearExperience);
+    arrayMainCoach.get(index1).setAmountTeam(amountTeam);
+    arrayMainCoach.get(index1).setAmountWinner(amountWinner);
+    String msg = "La informacion del entrenador principal se ha actualizado";
+    return msg;
+  }
+
+
 }

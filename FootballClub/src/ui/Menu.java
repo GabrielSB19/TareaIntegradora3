@@ -14,6 +14,7 @@ public class Menu{
   private static final int REMOVEEMPLOYEE = 2;
   private static final int ADDTEAM = 3;
   private static final int ADDEMPLOYEETOTEAM = 4;
+  private static final int UPTADEDATAEMPLOYEE = 5;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -32,6 +33,7 @@ public class Menu{
     System.out.println("[2] Despedir un empleado del club");
     System.out.println("[3] Agregar un equipo (Solo se podran agregar 2)");
     System.out.println("[4] Agregar empleados a un equipo");
+    System.out.println("[5] Actualizar informacion de los empleados");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -59,6 +61,10 @@ public class Menu{
       case ADDEMPLOYEETOTEAM:
       doOperationAddEmployeeToTeam();
       break;
+      case UPTADEDATAEMPLOYEE:
+      showDoOperationEmployee();
+      doOperationUptadeDataEmployee(readOption());
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -73,7 +79,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 6);
+    } while(option != 7);
   }
 
   public void showDoOperationEmployee(){
@@ -327,4 +333,43 @@ public class Menu{
     int index4 = sc.nextInt()-1;
     return index4;
   }
+
+  public void doOperationUptadeDataEmployee(int choice){
+    switch(choice){
+      case 1:
+      uptadeDataMainCoach();
+      break;
+      case 2:
+      System.out.println("xd");
+      break;
+      case 3:
+      System.out.println("xd");
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  public void uptadeDataMainCoach(){
+    System.out.println("No podras actualizar el nombre ni el ID del entrenador principal");
+    System.out.println("Selecciona el entrenador al cual le deseas actualizar los datos");
+    System.out.print(myClub.showNameOptionMainCoachTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    System.out.println("Acutaliza el salario del entrenador principal");
+    int salary = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Acutaliza el estado del entrenador principal");
+    boolean status = optionStatus();
+    System.out.println("Acutaliza los anios de experiencia del entrenador principal");
+    int yearExperience = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza la cantidad de clubes dirigidos por entrenador principal");
+    int amountTeam = sc.nextInt();
+    sc.nextLine();
+    System.out.println("Actualiza los campeonatos ganados por entrenador principal");
+    int amountWinner = sc.nextInt();
+    sc.nextLine();
+    System.out.println(myClub.uptadeDataMainCoachProcess(index1, salary, status, yearExperience, amountTeam, amountWinner));
+  }  
 }
