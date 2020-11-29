@@ -22,4 +22,11 @@ public abstract class Coach extends Employee{
   public void setYearExperience(int yearExperience){
     this.yearExperience = yearExperience;
   }
+
+  @Override
+  public String showData(){
+    String msg = super.showData();
+    msg += "Años de Experiencia: "+getYearExperience()+"\n";
+    return msg;
+  }
 }

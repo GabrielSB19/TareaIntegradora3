@@ -75,4 +75,40 @@ public class Team{
     }
     return msg;
   }
+
+  public int amountAsistentCoachInTeam(){
+    int x = 0;
+    for(int i = 0; i<NUM_MAX_ASISTENTCOACH; i++){
+      if(asistentCoachTeam[i] != null){
+        x++;
+      }
+    }
+    return x;
+  }
+
+  public int amountPlayerInTeam(){
+    int x = 0;
+    for(int i = 0; i<NUM_MAX_PLAYER; i++){
+      if(playerTeam[i] != null){
+        x++;
+      }
+    }
+    return x;
+  }
+
+  public String showDataTeam(){
+    String msg = "";
+    msg = "*************** Team ***************\n";
+    msg += "Nombre: "+getNameTeam()+"\n";
+    if(mainCoachTeam != null){
+      msg += "Numero de entrenadores principales: 1\n";
+    }
+    else{
+      msg += "Numero de entrenadores principales : 0\n";
+    }
+    msg += "Numero de entrenadores asistentes: "+amountAsistentCoachInTeam()+"\n";
+    msg += "Numero de jugadores: "+amountPlayerInTeam()+"\n";
+    msg += "************************************\n";
+    return msg;
+  }
 }

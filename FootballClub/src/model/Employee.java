@@ -51,4 +51,19 @@ public abstract class Employee{
   public void setStatus(boolean status){
     this.status = status;
   }
+
+  public String showData(){
+    String msg = "";
+    msg += "************* Empleado *************\n";
+    msg += "Nombre: "+getNameEm()+"\n";
+    msg += "Id: "+getIdEm()+"\n";
+    msg += "Salario: "+getSalary()+"\n";
+    if(getStatus()){
+      msg += "Estado: Activo\n";
+    }
+    else{
+      msg += "Estado: Inactivo\n";
+    }
+    return msg;
+  }
 }

@@ -15,6 +15,8 @@ public class Menu{
   private static final int ADDTEAM = 3;
   private static final int ADDEMPLOYEETOTEAM = 4;
   private static final int UPTADEDATAEMPLOYEE = 5;
+  private static final int SHOWDATAEMPLOYEE = 6;
+  private static final int SHOWDATATEAM = 7;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -34,6 +36,8 @@ public class Menu{
     System.out.println("[3] Agregar un equipo (Solo se podran agregar 2)");
     System.out.println("[4] Agregar empleados a un equipo");
     System.out.println("[5] Actualizar informacion de los empleados");
+    System.out.println("[6] Mostra la informacion de los empleados");
+    System.out.println("[7] Mostrar informacion de los equipos");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -65,6 +69,13 @@ public class Menu{
       showDoOperationEmployee();
       doOperationUptadeDataEmployee(readOption());
       break;
+      case SHOWDATAEMPLOYEE:
+      showOptionDataEmployee();
+      doOperationShowEmployee(readOption());
+      break;
+      case SHOWDATATEAM:
+      System.out.print(myClub.showDataTeam());
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -79,7 +90,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 7);
+    } while(option != 8);
   }
 
   public void showDoOperationEmployee(){
@@ -415,5 +426,45 @@ public class Menu{
     System.out.println("Actualiza la posicion del jugador");
     Position position = addPositionPlayer();
     System.out.println(myClub.uptadeDataPlayerProcess(index1, salary, status, dorsal, amountGoal, average, position));
+  }
+
+  public void doOperationShowEmployee(int choice){
+    switch(choice){
+      case 1:
+      System.out.print(myClub.showDataAllEmployee());
+      break;
+      case 2:
+      optionShowEmployee();
+      int option = sc.nextInt();
+      switch(option){
+        case 1:
+        System.out.print(myClub.showDataMainCoach());
+        break;
+        case 2:
+        System.out.print(myClub.showDataAsistentCoach());
+        break;
+        case 3:
+        System.out.print(myClub.showDataPlayer());
+        break;
+        default:
+        System.out.println("Ingresa una opcion valida");
+      }
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  public void showOptionDataEmployee(){
+    System.out.println("Que deseas ver");
+    System.out.println("[1] La informacion de todos los empleados");
+    System.out.println("[2] La informacion del empleado segun el tipo");
+  }
+
+  public void optionShowEmployee(){
+    System.out.println("Que tipo de empleados desas ver");
+    System.out.println("[1] Entrenador principal");
+    System.out.println("[2] Entrenador asistente");
+    System.out.println("[3] Jugador");
   }
 }

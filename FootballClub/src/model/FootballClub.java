@@ -252,4 +252,46 @@ public class FootballClub{
     String msg = "La informacion del jugador se ha actualizado";
     return msg;
   }
+
+  public String showDataAllEmployee(){
+    String msg = "";
+    for(int i = 0; i<employeeClub.size(); i++){
+      msg += employeeClub.get(i).showData();
+    }
+    return msg;
+  }
+
+  public String showDataMainCoach(){
+    String msg = "";
+    for(int i = 0; i<arrayMainCoach.size(); i++){
+      msg += arrayMainCoach.get(i).showData();
+    }
+    return msg;
+  }
+
+  public String showDataAsistentCoach(){
+    String msg = "";
+    for(int i = 0; i<arrayAsistentCoach.size(); i++){
+      msg += arrayAsistentCoach.get(i).showData();
+    }
+    return msg;
+  }
+
+  public String showDataPlayer(){
+    String msg = "";
+    for(int i = 0; i<arrayPlayer.size(); i++){
+      msg += arrayPlayer.get(i).showData();
+    }
+    return msg;
+  }
+
+  public String showDataTeam(){
+    String msg = "";
+    for(int i = 0; i<NUM_MAX_TEAM; i++){
+      if(team[i] != null){
+        msg += team[i].showDataTeam();
+      }
+    }
+    return msg;
+  }
 }

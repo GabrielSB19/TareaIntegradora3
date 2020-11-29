@@ -18,7 +18,7 @@ public class Player extends Employee implements CalculateOperation{
     this.dorsal = dorsal;
     this.amountGoal = amountGoal;
     this.average = average;
-    this.position = Position.DEFAULT;
+    this.position = position;
   }
 
   public int getDorsal(){
@@ -61,6 +61,17 @@ public class Player extends Employee implements CalculateOperation{
   @Override
   public double lvlMarket(){
     return 0.0;
+  }
+
+  @Override
+  public String showData(){
+    String msg = super.showData();
+    msg += "Numero de camiseta: "+getDorsal()+"\n";
+    msg += "Numero de goles anotados: "+getAmountGoal()+"\n";
+    msg += "Calificacion: "+getAverage()+"\n";
+    msg += "Posicion: "+getPosition()+"\n";
+    msg += "************************************\n";
+    return msg;
   }
 
 }

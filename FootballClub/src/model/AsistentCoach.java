@@ -14,7 +14,7 @@ public class AsistentCoach extends Coach{
   public AsistentCoach(String nameEm, int idEm, int salary, boolean status, int yearExperience, boolean playerProfesional, Expertise expertise){
     super(nameEm, idEm, salary, status, yearExperience);
     this.playerProfesional = playerProfesional;
-    this.expertise = Expertise.DEFAULT;
+    this.expertise = expertise;
   }
 
   public boolean getPlayerProfesional(){
@@ -31,5 +31,19 @@ public class AsistentCoach extends Coach{
 
   public void setExpertise(Expertise expertise){
     this.expertise = expertise;
+  }
+
+  @Override
+  public String showData(){
+    String msg = super.showData();
+    if(getPlayerProfesional()){
+      msg += "Fue jugador profesional\n";
+    }
+    else{
+      msg += "No fue jugador profesional\n";
+    }
+    msg += "Expertisia: "+getExpertise()+"\n";
+    msg += "************************************\n";
+    return msg;
   }
 }

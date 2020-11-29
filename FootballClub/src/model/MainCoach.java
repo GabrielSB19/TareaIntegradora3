@@ -42,4 +42,13 @@ public class MainCoach extends Coach implements CalculateOperation{
   public double lvlMarket(){
     return 0.0;
   }
+
+  @Override
+  public String showData(){
+    String msg = super.showData();
+    msg += "Cantidad de equipos dirigidos: "+getAmountTeam()+"\n";
+    msg += "Cantidad de trofeos ganados: "+getAmountWinner()+"\n";
+    msg += "************************************\n";
+    return msg;
+  }
 }
