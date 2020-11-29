@@ -7,8 +7,8 @@ package model;
 import java.util.*;
 
 public enum Tactic{
-  Posesion,
-  CounterAttack,
-  HighPressure,
-  Default;
+  POSESION,
+  COUNTERATTACK,
+  HIGHPRESSURE,
+  DEFAULT;
 }

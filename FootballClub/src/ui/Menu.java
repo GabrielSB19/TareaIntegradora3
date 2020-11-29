@@ -17,6 +17,7 @@ public class Menu{
   private static final int UPTADEDATAEMPLOYEE = 5;
   private static final int SHOWDATAEMPLOYEE = 6;
   private static final int SHOWDATATEAM = 7;
+  private static final int ADDLINEUPTOTEAM = 8;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -38,6 +39,7 @@ public class Menu{
     System.out.println("[5] Actualizar informacion de los empleados");
     System.out.println("[6] Mostra la informacion de los empleados");
     System.out.println("[7] Mostrar informacion de los equipos");
+    System.out.println("[8] Agregar alineacion a un equipo");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -76,6 +78,9 @@ public class Menu{
       case SHOWDATATEAM:
       System.out.print(myClub.showDataTeam());
       break;
+      case ADDLINEUPTOTEAM:
+      addDataLineUp();
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -90,7 +95,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 8);
+    } while(option != 10);
   }
 
   public void showDoOperationEmployee(){
@@ -466,5 +471,43 @@ public class Menu{
     System.out.println("[1] Entrenador principal");
     System.out.println("[2] Entrenador asistente");
     System.out.println("[3] Jugador");
+  }
+
+  public Tactic optionTactic(){
+    System.out.println("[1] Posesion \n[2] Contra ataque \n[3] Presion alta \n[4] Por defecto");
+    int option = sc.nextInt();
+    sc.nextLine();
+    Tactic newTactic = Tactic.DEFAULT;
+    switch(option){
+      case 1:
+      newTactic = Tactic.POSESION;
+      break;
+      case 2:
+      newTactic = Tactic.COUNTERATTACK;
+      break;
+      case 3:
+      newTactic = Tactic.HIGHPRESSURE;
+      break;
+      case 4:
+      newTactic = Tactic.DEFAULT;
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+    return newTactic;
+  }
+
+  public void addDataLineUp(){
+    System.out.println("A que equipo le deseas agregar una alineacion");
+    System.out.print(myClub.showNameNewTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    System.out.println("Ingresa la fecha en la que se creo la alineacion");
+    String dateLineUp = sc.nextLine();
+    System.out.println("Ingresa la tactica");
+    Tactic tactic = optionTactic();
+    System.out.println("Ingresa la formacion, recuerda el formato N-N-N");
+    String formation = sc.nextLine();
+    System.out.println(myClub.addLineUpToTheTeam(index1, dateLineUp, tactic, formation));
   }
 }

@@ -14,7 +14,7 @@ public class LineUp{
 
   public LineUp(String dateLineUp, Tactic tactic, String formation){
    this.dateLineUp = dateLineUp;
-   this.tactic = Default;
+   this.tactic = tactic;
    this.formation  = formation;
   }
 
@@ -31,7 +31,7 @@ public class LineUp{
   }
 
   public void setTactic(Tactic tactic){
-    this.tactic = Default;
+    this.tactic = tactic;
   }
 
   public String getFormation(){

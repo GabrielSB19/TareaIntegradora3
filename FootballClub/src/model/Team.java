@@ -14,6 +14,7 @@ public class Team{
   private MainCoach mainCoachTeam;
   private AsistentCoach [] asistentCoachTeam;
   private Player [] playerTeam;
+  private ArrayList<LineUp> lineUpTeam;
 
   private String nameTeam;
 
@@ -22,6 +23,7 @@ public class Team{
     this.mainCoachTeam = mainCoachTeam;
     asistentCoachTeam = new AsistentCoach [NUM_MAX_ASISTENTCOACH];
     playerTeam = new Player [NUM_MAX_PLAYER];
+    lineUpTeam = new ArrayList<LineUp>();
   }
 
   public String getNameTeam(){
@@ -73,6 +75,14 @@ public class Team{
         msg = "El jugador no se ha anadido debido a que excede el numero de jugadores permitidos";
       }
     }
+    return msg;
+  }
+
+  public String addLineUpInTeam(String dateLineUp, Tactic tactic, String formation){
+    String msg = "";
+    LineUp newLineUp = new LineUp(dateLineUp, tactic, formation);
+    lineUpTeam.add(newLineUp);
+    msg = "Alineacion agregada correctamente";
     return msg;
   }
 

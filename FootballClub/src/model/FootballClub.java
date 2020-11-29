@@ -294,4 +294,8 @@ public class FootballClub{
     }
     return msg;
   }
+
+  public String addLineUpToTheTeam(int index1, String dateLineUp, Tactic tactic, String formation){
+    return team[index1].addLineUpInTeam(dateLineUp, tactic, formation);
+  }
 }
