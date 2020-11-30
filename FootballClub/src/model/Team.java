@@ -118,6 +118,9 @@ public class Team{
     }
     msg += "Numero de entrenadores asistentes: "+amountAsistentCoachInTeam()+"\n";
     msg += "Numero de jugadores: "+amountPlayerInTeam()+"\n";
+    for(int i = 0; i<lineUpTeam.size(); i++){
+      msg += lineUpTeam.get(i).showNormalLineUp();
+    }
     msg += "************************************\n";
     return msg;
   }

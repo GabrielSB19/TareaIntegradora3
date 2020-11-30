@@ -18,6 +18,8 @@ public class Menu{
   private static final int SHOWDATAEMPLOYEE = 6;
   private static final int SHOWDATATEAM = 7;
   private static final int ADDLINEUPTOTEAM = 8;
+  private static final int ADDCOACHSECTOROFFICE = 9;
+  private static final int ADDPLAYERDRESSINGROOM = 10;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -40,6 +42,7 @@ public class Menu{
     System.out.println("[6] Mostra la informacion de los empleados");
     System.out.println("[7] Mostrar informacion de los equipos");
     System.out.println("[8] Agregar alineacion a un equipo");
+    System.out.println("[9] Agregar entrenadores a las oficinas");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -81,6 +84,10 @@ public class Menu{
       case ADDLINEUPTOTEAM:
       addDataLineUp();
       break;
+      case ADDCOACHSECTOROFFICE:
+      break;
+      case ADDPLAYERDRESSINGROOM:
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -95,7 +102,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 10);
+    } while(option != 12);
   }
 
   public void showDoOperationEmployee(){
@@ -509,5 +516,34 @@ public class Menu{
     System.out.println("Ingresa la formacion, recuerda el formato N-N-N");
     String formation = sc.nextLine();
     System.out.println(myClub.addLineUpToTheTeam(index1, dateLineUp, tactic, formation));
+  }
+
+  public void selectTheCoachToTheOffice(){
+    System.out.println("Que tipo de entrenador deseas agregar a la oficina");
+    System.out.println("[1] Entrenador Principal");
+    System.out.println("[2] Entrenador Asistente");
+    boolean out = true;
+    int index1 = sc.nextInt()-1;
+    int index2 = 0;
+    sc.nextLine();
+    switch(index1){
+      case 0:
+      System.out.println("Selecciona un entrenador principal");
+      System.out.print(myClub.showNameOptionMainCoachTeam());
+      index2 = sc.nextInt()-1;
+      sc.nextLine();
+      break;
+      case 1:
+      System.out.println("Selecciona un entrenador asistente");
+      System.out.print(myClub.showNameOptionAsistenCoachTeam());
+      index2 = sc.nextInt()-1;
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+      out = false;
+    }
+    if(out){
+      System.out.println(myClub.addCoachToTheSectorOffice(index1, index2));
+    }
   }
 }

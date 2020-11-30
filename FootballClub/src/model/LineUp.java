@@ -41,4 +41,13 @@ public class LineUp{
   public void setFormation(String formation){
     this.formation  = formation;
   }
+
+  public String showNormalLineUp(){
+    String msg = "";
+    msg += "***** Alineaciones del equipo ******\n";
+    msg += "Fecha de la alineacion: "+getDateLineUp()+"\n";
+    msg += "Tactica : "+getTactic()+"\n";
+    msg += "Formacion: "+getFormation()+"\n";
+    return msg;
+  }
 }

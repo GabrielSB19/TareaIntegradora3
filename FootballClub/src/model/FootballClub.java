@@ -9,12 +9,15 @@ import java.util.*;
 public class FootballClub{
 
   private final static int NUM_MAX_TEAM = 2;
+  private final static int HORIZONTALSECTOROFFICE = 6;
+  private final static int VERTICALSECTOROFFICE = 6;
 
   private ArrayList<Employee> employeeClub;
   private ArrayList<MainCoach> arrayMainCoach;
   private ArrayList<AsistentCoach> arrayAsistentCoach;
   private ArrayList<Player> arrayPlayer;
   private Team [] team;
+  private Coach [][] sectorOffice;
 
   private String nameFC;
   private int nitFC;
@@ -29,6 +32,7 @@ public class FootballClub{
     arrayAsistentCoach = new ArrayList<AsistentCoach>();
     arrayPlayer = new ArrayList<Player>();
     team = new Team [NUM_MAX_TEAM];
+    sectorOffice = new Coach[HORIZONTALSECTOROFFICE][VERTICALSECTOROFFICE];
   }
 
   public String getNameFC(){
@@ -297,5 +301,46 @@ public class FootballClub{
 
   public String addLineUpToTheTeam(int index1, String dateLineUp, Tactic tactic, String formation){
     return team[index1].addLineUpInTeam(dateLineUp, tactic, formation);
+  }
+
+  public String addCoachToTheSectorOffice(int index1, int index2){
+    String msg = "";
+    boolean out = false;
+    for(int i = 0; i<HORIZONTALSECTOROFFICE && !out; i++){
+      for(int j = 0; j<VERTICALSECTOROFFICE && !out; j++){
+        if(i == 0 && j ==0){
+          if(sectorOffice[i][j] == null){
+            if(index1 == 0){
+              sectorOffice[i][j] = arrayMainCoach.get(index2);
+              msg  = "Se agrego correctamente el entrenador a la oficina";
+              out = true;
+            }
+            else if (index1 == 1){
+              sectorOffice[i][j] = arrayAsistentCoach.get(index2);
+              msg  = "Se agrego correctamente el entrenador a la oficina";
+              out = true;
+            }
+          }
+        }
+        else if(i %2 == 0 && j%2 == 0){
+          if(sectorOffice[i][j] == null){
+            if(index1 == 0){
+              sectorOffice[i][j] = arrayMainCoach.get(index2);
+              msg  = "Se agrego correctamente el entrenador a la oficina";
+              out = true;
+            }
+            else if(index1 == 1){
+              sectorOffice[i][j] = arrayAsistentCoach.get(index2);
+              msg  = "Se agrego correctamente el entrenador a la oficina";
+              out = true;
+            }
+          }
+        }
+        else{
+          msg = "No se puedo agregar el jugador debida a que no hay mas espacios disponibles";
+        }
+      }
+    }
+    return msg;
   }
 }
