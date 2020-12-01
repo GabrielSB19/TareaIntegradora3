@@ -41,7 +41,7 @@ public class Player extends Employee implements CalculateOperation{
     return average;
   }
 
-  public void setAverage(double avergae){
+  public void setAverage(double average){
     this.average = average;
   }
 

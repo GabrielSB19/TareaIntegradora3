@@ -21,7 +21,7 @@ public class Menu{
   private static final int ADDCOACHSECTOROFFICE = 9;
   private static final int ADDPLAYERDRESSINGROOM = 10;
   private static final int CALCULATEPRICEMARKET = 11;
-  private static final int CALCULATELEVLE = 12;
+  private static final int CALCULATELEVEL = 12;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -41,7 +41,7 @@ public class Menu{
     System.out.println("[3] Agregar un equipo (Solo se podran agregar 2)");
     System.out.println("[4] Agregar empleados a un equipo");
     System.out.println("[5] Actualizar informacion de los empleados");
-    System.out.println("[6] Mostra la informacion de los empleados");
+    System.out.println("[6] Mostrar la informacion de los empleados");
     System.out.println("[7] Mostrar informacion de los equipos");
     System.out.println("[8] Agregar alineacion a un equipo");
     System.out.println("[9] Agregar entrenadores a las oficinas");
@@ -97,8 +97,10 @@ public class Menu{
       doOperationAddPlayerToTheDressing();
       break;
       case CALCULATEPRICEMARKET:
+      calculatePriceMarket();
       break;
-      case CALCULATELEVLE:
+      case CALCULATELEVEL:
+      calculateLevel();
       break;
       //case:
       //break;
@@ -116,7 +118,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 12);
+    } while(option != 14);
   }
 
   public void showDoOperationEmployee(){
@@ -433,7 +435,7 @@ public class Menu{
   public void uptadeDataPlayer(){
     System.out.println("No podras actualizar el nombre ni el ID del jugador");
     System.out.print(myClub.showNameOptionPlayer());
-    int index1 = sc.nextInt();
+    int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Actualia el salario del jugador");
     int salary = sc.nextInt();
@@ -457,7 +459,9 @@ public class Menu{
   public void doOperationShowEmployee(int choice){
     switch(choice){
       case 1:
-      System.out.print(myClub.showDataAllEmployee());
+      System.out.print(myClub.showDataMainCoach());
+      System.out.print(myClub.showDataAsistentCoach());
+      System.out.print(myClub.showDataPlayer());
       break;
       case 2:
       optionShowEmployee();
@@ -569,5 +573,57 @@ public class Menu{
     System.out.println("Selecciona el jugador que deseas agregar");
     int index2 = sc.nextInt()-1;
     System.out.println(myClub.addPlayerDressingRoom(index1, index2));
+  }
+
+  public void calculatePriceMarket(){
+    int index1 = 0;
+    System.out.println("A que tipo de empleado deseas calcularle el precio de mercado");
+    System.out.println("[1] Entrenador Principal \n[2] Jugador");
+    int option = sc.nextInt();
+    sc.nextLine();
+    switch(option){
+      case 1:
+      System.out.print("Selecciona un entrenador principal");
+      System.out.print(myClub.showNameOptionMainCoachTeam());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.println(myClub.newPriceMarketCoach(index1));
+      break;
+      case 2:
+      System.out.println("Selecciona un jugador");
+      System.out.print(myClub.showNameOptionPlayer());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newPriceMarketPlayer(index1));
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  public void calculateLevel(){
+    int index1 = 0;
+    System.out.println("A que tipo de empleado deseas calcularle el nivel");
+    System.out.println("[1] Entrenador Principal \n[2] Jugador");
+    int option = sc.nextInt();
+    sc.nextLine();
+    switch(option){
+      case 1:
+      System.out.print("Selecciona un entrenador principal");
+      System.out.print(myClub.showNameOptionMainCoachTeam());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.println(myClub.newLevelCoach(index1));
+      break;
+      case 2:
+      System.out.println("Selecciona un jugador");
+      System.out.print(myClub.showNameOptionPlayer());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newLevelPlayer(index1));
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
   }
 }
