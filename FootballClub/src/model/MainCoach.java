@@ -35,11 +35,15 @@ public class MainCoach extends Coach implements CalculateOperation{
 
   @Override
   public double priceMarket(){
-    return 0.0;
+    double priceMarketCoach = 0;
+    priceMarketCoach = (getSalary()*10)+(getYearExperience()*100)+(getAmountWinner()*50);
+    return priceMarketCoach;
   }
 
   @Override
   public double lvlMarket(){
+    double lvlMarketCoach = 0;
+    lvlMarketCoach = 5+(getAmountWinner()/10);
     return 0.0;
   }
 

@@ -20,6 +20,8 @@ public class Menu{
   private static final int ADDLINEUPTOTEAM = 8;
   private static final int ADDCOACHSECTOROFFICE = 9;
   private static final int ADDPLAYERDRESSINGROOM = 10;
+  private static final int CALCULATEPRICEMARKET = 11;
+  private static final int CALCULATELEVLE = 12;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -43,6 +45,10 @@ public class Menu{
     System.out.println("[7] Mostrar informacion de los equipos");
     System.out.println("[8] Agregar alineacion a un equipo");
     System.out.println("[9] Agregar entrenadores a las oficinas");
+    System.out.println("[10] Agregar jugadores a los camerinos");
+    System.out.println("[11] Calcular el precio de mercado de los jugadores y entrenadores");
+    System.out.println("[12] Calcular el nivel de los jugadores y entrenadores");
+    System.out.println("[13] Ver la informacion del club");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -85,9 +91,17 @@ public class Menu{
       addDataLineUp();
       break;
       case ADDCOACHSECTOROFFICE:
+      selectTheCoachToTheOffice();
       break;
       case ADDPLAYERDRESSINGROOM:
+      doOperationAddPlayerToTheDressing();
       break;
+      case CALCULATEPRICEMARKET:
+      break;
+      case CALCULATELEVLE:
+      break;
+      //case:
+      //break;
       case EXIT:
       System.exit(0);
       break;
@@ -545,5 +559,15 @@ public class Menu{
     if(out){
       System.out.println(myClub.addCoachToTheSectorOffice(index1, index2));
     }
+  }
+
+  public void doOperationAddPlayerToTheDressing(){
+    System.out.println("Selecciona el equipo de los jugadores que deseas agregar al camerino");
+    System.out.print(myClub.showNameNewTeam());
+    int index1 = sc.nextInt()-1;
+    System.out.print(myClub.showNameOfPlayerToTheTeam(index1));
+    System.out.println("Selecciona el jugador que deseas agregar");
+    int index2 = sc.nextInt()-1;
+    System.out.println(myClub.addPlayerDressingRoom(index1, index2));
   }
 }

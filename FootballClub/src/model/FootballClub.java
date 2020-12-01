@@ -11,6 +11,10 @@ public class FootballClub{
   private final static int NUM_MAX_TEAM = 2;
   private final static int HORIZONTALSECTOROFFICE = 6;
   private final static int VERTICALSECTOROFFICE = 6;
+  private final static int HORIZONTALDRESSINGROOMA = 7;
+  private final static int VERTICALDRESSINGROOMA = 6;
+  private final static int HORIZONTALDRESSINGROOMB = 7;
+  private final static int VERTICALDRESSINGROOMB = 7;
 
   private ArrayList<Employee> employeeClub;
   private ArrayList<MainCoach> arrayMainCoach;
@@ -18,6 +22,8 @@ public class FootballClub{
   private ArrayList<Player> arrayPlayer;
   private Team [] team;
   private Coach [][] sectorOffice;
+  private Player [][] dressingRoom1;
+  private Player [][] dressingRoom2;
 
   private String nameFC;
   private int nitFC;
@@ -33,6 +39,8 @@ public class FootballClub{
     arrayPlayer = new ArrayList<Player>();
     team = new Team [NUM_MAX_TEAM];
     sectorOffice = new Coach[HORIZONTALSECTOROFFICE][VERTICALSECTOROFFICE];
+    dressingRoom1 = new Player [HORIZONTALDRESSINGROOMA][VERTICALDRESSINGROOMA];
+    dressingRoom2 = new Player [HORIZONTALDRESSINGROOMB][VERTICALDRESSINGROOMB];
   }
 
   public String getNameFC(){
@@ -322,7 +330,7 @@ public class FootballClub{
             }
           }
         }
-        else if(i %2 == 0 && j%2 == 0){
+        else if((i %2 == 0 && j%2 == 0) || (i == 0 && j%2 == 0) || (j == 0 && i%2 == 0)){
           if(sectorOffice[i][j] == null){
             if(index1 == 0){
               sectorOffice[i][j] = arrayMainCoach.get(index2);
@@ -338,6 +346,62 @@ public class FootballClub{
         }
         else{
           msg = "No se puedo agregar el jugador debida a que no hay mas espacios disponibles";
+        }
+      }
+    }
+    return msg;
+  }
+
+  public String showNameOfPlayerToTheTeam(int index1){
+    return team[index1].showNameOfPlayerInTeam();
+  }
+
+  public String addPlayerDressingRoom(int index1, int index2){
+    String msg = "";
+    boolean out = false;
+    if(index1 == 0){
+      for(int i = 0; i<HORIZONTALDRESSINGROOMA && !out; i++){
+        for(int j = 0; j<VERTICALDRESSINGROOMA && !out; j++){
+          if(i == 0 && j ==0){
+            if(dressingRoom1[i][j] == null){
+              dressingRoom1[i][j] = team[index1].addNewPlayerToTheDressingRoom(index2);
+              msg  = "Se agrego correctamente el jugador al camerino 6x7";
+              out = true;
+            }
+          }
+          else if((i %2 == 0 && j%2 == 0) || (i == 0 && j%2 == 0) || (j == 0 && i%2 == 0)){
+            if(dressingRoom1[i][j] == null){
+              dressingRoom1[i][j] = team[index1].addNewPlayerToTheDressingRoom(index2);
+              msg  = "Se agrego correctamente el jugador al camerino 6x7";
+              out = true;
+            }
+          }
+          else{
+            msg = "No se puedo agregar el jugador debida a que no hay mas espacios disponibles";
+          }
+        }
+      }
+    }
+    if(index1 == 1){
+      for(int i = 0; i<HORIZONTALDRESSINGROOMB && !out; i++){
+        for(int j = 0; j<VERTICALDRESSINGROOMB && !out; j++){
+          if(i == 0 && j ==0){
+            if(dressingRoom2[i][j] == null){
+              dressingRoom2[i][j] = team[index1].addNewPlayerToTheDressingRoom(index2);
+              msg  = "Se agrego correctamente el jugador al camerino 6x7";
+              out = true;
+            }
+          }
+          else if((i %2 == 0 && j%2 == 0) || (i == 0 && j%2 == 0) || (j == 0 && i%2 == 0)){
+            if(dressingRoom2[i][j] == null){
+              dressingRoom2[i][j] = team[index1].addNewPlayerToTheDressingRoom(index2);
+              msg  = "Se agrego correctamente el jugador al camerino 6x7";
+              out = true;
+            }
+          }
+          else{
+            msg = "No se puedo agregar el jugador debida a que no hay mas espacios disponibles";
+          }
         }
       }
     }

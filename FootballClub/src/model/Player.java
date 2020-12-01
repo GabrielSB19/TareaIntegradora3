@@ -55,12 +55,44 @@ public class Player extends Employee implements CalculateOperation{
 
   @Override
   public double priceMarket(){
-    return 0.0;
+    double priceMarketPlayer = 0;
+    if(getPosition() == Position.GOALKEEPER){
+      priceMarketPlayer = (getSalary()*12)+(getAverage()*150);
+    }
+    else if(getPosition() == Position.DEFENCE){
+      priceMarketPlayer = (getSalary()*13)+(getAverage()*125)+(getAmountGoal()*100);
+    }
+    else if(getPosition() == Position.MIDFIELDER){
+      priceMarketPlayer = (getSalary()*14)+(getAverage()*135)+(getAmountGoal()*125);
+    }
+    else if(getPosition() == Position.FORWARD){
+      priceMarketPlayer = (getSalary()*15)+(getAverage()*145)+(getAmountGoal()*150);
+    }
+    else{
+      priceMarketPlayer = 0;
+    }
+    return priceMarketPlayer;
   }
 
   @Override
   public double lvlMarket(){
-    return 0.0;
+    double levelPlayer = 0;
+    if(getPosition() == Position.GOALKEEPER){
+      levelPlayer = (getAverage()*0.9);
+    }
+    else if(getPosition() == Position.DEFENCE){
+      levelPlayer = (getAverage()*0.9)+(getAmountGoal()/100);
+    }
+    else if(getPosition() == Position.MIDFIELDER){
+      levelPlayer = (getAverage()*0.9)+(getAmountGoal()/90);
+    }
+    else if(getPosition() == Position.FORWARD){
+      levelPlayer = (getAverage()*0.9)+(getAmountGoal()/80);
+    }
+    else{
+      levelPlayer = 0;
+    }
+    return levelPlayer;
   }
 
   @Override

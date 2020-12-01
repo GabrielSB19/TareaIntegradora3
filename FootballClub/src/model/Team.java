@@ -124,4 +124,18 @@ public class Team{
     msg += "************************************\n";
     return msg;
   }
+
+  public String showNameOfPlayerInTeam(){
+    String msg = "";
+    for(int i = 0; i<NUM_MAX_PLAYER; i++){
+      if(playerTeam[i] == null){
+        msg += "["+(i+1)+"]"+playerTeam[i].getNameEm()+"\n";
+      }
+    }
+    return msg;
+  }
+
+  public Player addNewPlayerToTheDressingRoom(int index2){
+    return playerTeam[index2];
+  }
 }
