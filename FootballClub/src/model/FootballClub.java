@@ -427,4 +427,29 @@ public class FootballClub{
     msg = "El nivel de este jugador es de "+result;
     return msg;
   }
+
+  public int numTeam(){
+    int x = 0;
+    for(int i = 0; i<NUM_MAX_TEAM; i++){
+      if(team[i] != null){
+        x++;
+      }
+    }
+    return x;
+  }
+
+  public String showInformationClub(){
+    String msg = "************** Informacion del Club **************\n";
+    msg += "Nombre del club: "+getNameFC()+"\n";
+    msg += "NIT del club: "+getNitFC()+"\n";
+    msg += "Fecha de fundacion: "+getFundationDateFC()+"\n";
+    msg += "Numero de empleados totales: "+employeeClub.size()+"\n";
+    msg += "Numero de entrenadore principales"+arrayMainCoach.size()+"\n";
+    msg += "Numero de entrenadores asistentes: "+arrayAsistentCoach.size()+"\n";
+    msg += "Numero de jugadores: "+arrayPlayer.size()+"\n";
+    msg += "Numero de equipos: "+numTeam()+"\n";
+    msg += "Numero de oficinas: 1\n";
+    msg += "Numero de camerinos: 2\n";
+    return msg;
+  }
 }

@@ -22,6 +22,7 @@ public class Menu{
   private static final int ADDPLAYERDRESSINGROOM = 10;
   private static final int CALCULATEPRICEMARKET = 11;
   private static final int CALCULATELEVEL = 12;
+  private static final int SHOWINFOCLUB = 13;
   private static final int EXIT = 0;
 
   private Scanner sc = new Scanner(System.in);
@@ -102,8 +103,9 @@ public class Menu{
       case CALCULATELEVEL:
       calculateLevel();
       break;
-      //case:
-      //break;
+      case SHOWINFOCLUB:
+      System.out.print(myClub.showInformationClub());
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -118,7 +120,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 14);
+    } while(option != 15);
   }
 
   public void showDoOperationEmployee(){
