@@ -403,28 +403,28 @@ public class FootballClub{
   public String newPriceMarketCoach(int index1){
     String msg = "";
     double result = arrayMainCoach.get(index1).priceMarket();
-    msg = "El precio de mercado de este entrenador principal es de "+result;
+    msg = "El precio de mercado de este entrenador principal es de "+result+"\n";
     return msg;
   }
 
   public String newPriceMarketPlayer(int index1){
     String msg = "";
     double result = arrayPlayer.get(index1).priceMarket();
-    msg = "El precio de mercado de este jugador es de "+result;
+    msg = "El precio de mercado de este jugador es de "+result+"\n";
     return msg;
   }
 
   public String newLevelCoach(int index1){
     String msg = "";
     double result = arrayMainCoach.get(index1).lvlMarket();
-    msg = "El nivel de este entrenador principal es de "+result;
+    msg = "El nivel de este entrenador principal es de "+result+"\n";
     return msg;
   }
 
   public String newLevelPlayer(int index1){
     String msg = "";
     double result = arrayPlayer.get(index1).lvlMarket();
-    msg = "El nivel de este jugador es de "+result;
+    msg = "El nivel de este jugador es de "+result+"\n";
     return msg;
   }
 
@@ -450,6 +450,8 @@ public class FootballClub{
     msg += "Numero de equipos: "+numTeam()+"\n";
     msg += "Numero de oficinas: 1\n";
     msg += "Numero de camerinos: 2\n";
+    msg += "Si deseas ver la informacion de los jugadores detallada selecciona la opcion [6]\n";
+    msg += "Si deseas ver la informacion de los equipo detallada selecciona la Opcion [7]\n";
     return msg;
   }
 }

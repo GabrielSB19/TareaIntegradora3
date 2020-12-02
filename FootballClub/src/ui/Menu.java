@@ -10,6 +10,10 @@ import java.util.*;
 
 public class Menu{
 
+  /*
+  Constants to execute the user's choice
+  */
+
   private static final int ADDEMPLOYEE = 1;
   private static final int REMOVEEMPLOYEE = 2;
   private static final int ADDTEAM = 3;
@@ -25,14 +29,31 @@ public class Menu{
   private static final int SHOWINFOCLUB = 13;
   private static final int EXIT = 0;
 
+  /*
+  Defining objects
+  Scanner and FootballClub
+  */
+
   private Scanner sc = new Scanner(System.in);
   private FootballClub myClub = new FootballClub("Deportivo Cali", 1, "23/11/1912");
 
-  public static void WelcomeToTheClub(){
+  /**
+  *Welcome to the user who will run the program. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The user has been welcomed <br>
+  */
+
+  public static void welcomeToTheClub(){
     System.out.println("*******************************************");
     System.out.println("Bienvenido al club de Futbol Deportivo Cali");
     System.out.println("*******************************************");
   }
+
+  /**
+  *Show the available options that allow you to run the program. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> All options have been shown. <br>
+  */
 
   public void showMenu(){
     System.out.println("*******************************************");
@@ -54,11 +75,25 @@ public class Menu{
     System.out.println("*******************************************");
   }
 
+  /**
+  *Read an integer to be used in switch. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The desired option has been selected <br>
+  @return choice
+  */
+
   public int readOption(){
     int choice = sc.nextInt();
     sc.nextLine();
     return choice;
 }
+
+  /**
+  *Switch that allows to select the action to be executed. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The option to be executed has been selected. <br>
+  @param choice User's option to run. choice must be an available option.
+  */
 
   public void doOperation(int choice){
     switch (choice){
@@ -114,6 +149,12 @@ public class Menu{
     }
   }
 
+  /**
+  *Execute the option selected by the user. <br>
+  *<b>pre: </b> An option has been selected <br>
+  *<b>post: </b> The selected option was executed. <br>
+  */
+
   public void startProgram(){
     int option;
     do{
@@ -123,12 +164,25 @@ public class Menu{
     } while(option != 15);
   }
 
+  /**
+  *Shows the type of employees the club has. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The types of employees have been shown <br>
+  */
+
   public void showDoOperationEmployee(){
     System.out.println("Selecciona el tipo de empleado que deseas agregar");
     System.out.println("[1] Entrenador principal");
     System.out.println("[2] Entrenador asistente");
     System.out.println("[3] Jugador");
   }
+
+  /**
+  *Allows you to select which type of employee you want to add. <br>
+  *<b>pre: </b> At least one method of adding employee must have been executed. <br>
+  *<b>post: </b> The employee has been created. <br>
+  @param choice User's option to run. choice must be an available option.
+  */
 
   public void doOperationEmployee(int choice){
     switch(choice){
@@ -147,6 +201,13 @@ public class Menu{
 
   }
 
+  /**
+  *Allows you to select the status of an employee. <br>
+  *<b>pre: </b> At least one method of adding employee must have been executed. <br>
+  *<b>post: </b> The status of the employee, inactive or active. <br>
+  @return status
+  */
+
   public boolean optionStatus(){
     boolean status = false;
     System.out.println("[1] Activo");
@@ -161,6 +222,12 @@ public class Menu{
     }
     return status;
   }
+
+  /**
+  *Allows you to add a head coach to the club <br>
+  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>post: </b> A head coach has been hired to the club. <br>
+  */
 
   public void addMainCoach(){
     System.out.println("Ingresa el nombre del entrenador principal");
@@ -186,6 +253,13 @@ public class Menu{
 
   }
 
+  /**
+  *It allows you to know if an assistant coach was a professional. <br>
+  *<b>pre: </b> You must have selected the option to create an assistant coach. <br>
+  *<b>post: </b> The assistant coach was or was not professional<br>
+  @return playerProfessional
+  */
+
   public boolean wasProfesioanl(){
     boolean playerProfesional = false;
     System.out.println("[1] Fue jugador profesional");
@@ -200,6 +274,13 @@ public class Menu{
     }
     return playerProfesional;
   }
+
+  /**
+  *Allows you to determine the expertise of an assistant coach <br>
+  *<b>pre: </b> You must have selected the option to create an assistant coach. <br>
+  *<b>post: </b> The expertise of the assistant coach was determined. <br>
+  @return newExpertise
+  */
 
   public Expertise addExpertiseAsistentCoach(){
     System.out.println("[1] Ofensiva \n[2] Defensive \n[3] Posesiva \n[4] Jugadas de laboratorio");
@@ -225,6 +306,12 @@ public class Menu{
     return newExpertise;
   }
 
+  /**
+  *Allows you to add an assistant coach to the club <br>
+  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>post: </b> The assistant coach has been hired <br>
+  */
+
   public void addAsistentCoach(){
     System.out.println("Ingresa el nombre del entrenador asistente");
     String nameEm = sc.nextLine();
@@ -245,6 +332,13 @@ public class Menu{
     Expertise expertise = addExpertiseAsistentCoach();
     System.out.println(myClub.addEmployee(nameEm, idEm, salary, status, yearExperience, playerProfesional, expertise));
   }
+
+  /**
+  *Allows you to determine a player's position on the field. <br>
+  *<b>pre: </b> You must have selected the option to create a player. <br>
+  *<b>post: </b> The position of the player has been determined. <br>
+  @return newPosition
+  */
 
   public Position addPositionPlayer(){
     System.out.println("[1] Portero \n[2] Defensa \n[3] Volante \n[4] Delantero");
@@ -269,6 +363,12 @@ public class Menu{
     }
     return newPosition;
   }
+
+  /**
+  *Allows you to add a player to the club. <br>
+  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>post: </b> A player has been hired. <br>
+  */
 
   public void addPlayer(){
     System.out.println("Ingresa el nombre del jugador");
@@ -295,6 +395,12 @@ public class Menu{
     System.out.println(myClub.addEmployee(nameEm, idEm, salary, status, dorsal, amountGoal, average, position));
   }
 
+  /**
+  *Allows you to see the type of employees to dismiss from the club <br>
+  *<b>pre: </b> You should have selected option 2 of firing an employee. <br>
+  *<b>post: </b> The types of employees to be fired have been shown. <br>
+  */
+
   public void showDoOperationEmployeeRemove(){
     System.out.println("Selecciona el tipo de empleado que deseas despedir");
     System.out.println("[1] Entrenador principal");
@@ -302,6 +408,13 @@ public class Menu{
     System.out.println("[3] Jugador");
     System.out.println("En caso de que no existan empleados presiona la tecla Enter");
   }
+
+  /**
+  *Allows you to select the type of employee to be fired from the club. <br>
+  *<b>pre: </b> At least one method of firing an employee must have been executed. <br>
+  *<b>post: </b> An employee has been fired. <br>
+  @param choice User's option to run. choice must be an available option.
+  */
 
   public void doOperationRemoveEmployee(int choice){
       switch(choice){
@@ -319,17 +432,35 @@ public class Menu{
       }
   }
 
+  /**
+  *Allows you to select the employee to be fired. <br>
+  *<b>pre: </b> At least one method of firing an employee must have been executed. <br>
+  *<b>post: </b> The selected employee has been fired. <br>
+  */
+
   public void selectionEmployeeRemove(){
     System.out.println("Ingresa el nombre del empleado que deseas eliminar");
     String name = sc.nextLine();
     System.out.println(myClub.removeEmployee(name));
   }
 
+  /**
+  *Allows to add a new team to the club, only 2 can be added.
+  *<b>pre: </b> You should have selected option 3 to add an employee. <br>
+  *<b>post: </b> New equipment has been added <br>
+  */
+
   public void addNewTeam(){
     System.out.println("Ingresa el nombre del equipo que deseas crear");
     String nameTeam = sc.nextLine();
     System.out.println(myClub.addTeam(nameTeam));
   }
+
+  /**
+  *Allows you to select the type of employee and the employee to be added to a team. <br>
+  *<b>pre: </b> At least one employee of the selected employee type must be hired and have selected option 4.
+  *<b>post: </b> An employee has been added to a team <br>
+  */
 
   public void doOperationAddEmployeeToTeam(){
     System.out.println("A cual equipo le deseas agregar un empleado");
@@ -354,12 +485,26 @@ public class Menu{
     }
   }
 
+  /**
+  *Allows you to select the head coach to add to a team. <br>
+  *<b>pre: </b> At least one head coach and team exists, besides you can only add one per team. <br>
+  *<b>post: </b> A head coach has been added to the selected team <br>
+  @return index2
+  */
+
   public int addMainCoachTeam(){
     System.out.println("Que entrendor principal deseas elegir para el equipo seleccionado");
     System.out.print(myClub.showNameOptionMainCoachTeam());
     int index2 = sc.nextInt()-1;
     return index2;
   }
+
+  /**
+  *Allows you to select an assistant coach to add to a team. <br>
+  *<b>pre: </b> At least one assistant coach and team exists, besides you can only add three per team. <br>
+  *<b>post: </b> An assistant coach has been added to the selected team <br>
+  @return index3
+  */
 
   public int addAsistentCoachTeam(){
     System.out.println("Que entrenador asistente deseas elegir para el equipo seleccionado");
@@ -368,12 +513,26 @@ public class Menu{
     return index3;
   }
 
+  /**
+  *Allows you to select a player to add to a team. <br>
+  *<b>pre: </b> At least one player and team exists, moreover you can only add up to 25 players per team. <br>
+  *<b>post: </b> The player has been added to the selected team <br>
+  @return index4
+  */
+
   public int addPlayerTeam(){
     System.out.println("Que jugador deseas elegir para el equipo seleccionado");
     System.out.print(myClub.showNameOptionPlayer());
     int index4 = sc.nextInt()-1;
     return index4;
   }
+
+  /**
+  *Allows you to select the type of employee for whom the data will be updated. <br>
+  *<b>pre: </b> At least one employee exists according to the selected type, besides selecting option 5.
+  *<b>post: </b> An employee's data has been updated<br>
+  @param choice User's option to run. choice must be an available option.
+  */
 
   public void doOperationUptadeDataEmployee(int choice){
     switch(choice){
@@ -390,6 +549,12 @@ public class Menu{
       System.out.println("Ingresa una opcion valida");
     }
   }
+
+  /**
+  *It allows to update the data of the main coaches. <br>
+  *<b>pre: </b> At least one head coach exists. <br>
+  *<b>post: </b> The selected head coach has been updated <br>
+  */
 
   public void uptadeDataMainCoach(){
     System.out.println("No podras actualizar el nombre ni el ID del entrenador principal");
@@ -414,6 +579,12 @@ public class Menu{
     System.out.println(myClub.uptadeDataMainCoachProcess(index1, salary, status, yearExperience, amountTeam, amountWinner));
   }
 
+  /**
+  *Allows to update the data of the assistant coaches. <br>
+  *<b>pre: </b> At least one assistant coach exists. <br>
+  *<b>post: </b> The assistant coach data has been updated. <br>
+  */
+
   public void uptadeDataAsistenCoach(){
     System.out.println("No podras actualizar el nombre ni el ID del entrenador asistente");
     System.out.print(myClub.showNameOptionAsistenCoachTeam());
@@ -433,6 +604,12 @@ public class Menu{
     Expertise expertise = addExpertiseAsistentCoach();
     System.out.println(myClub.uptadeDataAsistenCoachProcess(index1, salary, status, yearExperience, playerProfesional, expertise));
   }
+
+  /**
+  *Allows to update the players' data. <br>
+  *<b>pre: </b> At least one assistant player exists. <br>
+  *<b>post: </b> The player's data has been updated <br>
+  */
 
   public void uptadeDataPlayer(){
     System.out.println("No podras actualizar el nombre ni el ID del jugador");
@@ -457,6 +634,13 @@ public class Menu{
     Position position = addPositionPlayer();
     System.out.println(myClub.uptadeDataPlayerProcess(index1, salary, status, dorsal, amountGoal, average, position));
   }
+
+  /**
+  *Allows to show the information of the employees, according to the selected type. <br>
+  *<b>pre: </b>At least one employee exists, in addition to selecting option 6.
+  *<b>post: </b> Employees' information has been shown<br>
+  @param choice User's option to run. choice must be an available option.
+  */
 
   public void doOperationShowEmployee(int choice){
     switch(choice){
@@ -487,11 +671,23 @@ public class Menu{
     }
   }
 
+  /**
+  *Options to see the type of employee information, individual by type or group <br>
+  *<b>pre: </b> Option 6 has been selected.
+  *<b>post: </b> What type of data you want to see, group or individual by type. <br>
+  */
+
   public void showOptionDataEmployee(){
     System.out.println("Que deseas ver");
     System.out.println("[1] La informacion de todos los empleados");
     System.out.println("[2] La informacion del empleado segun el tipo");
   }
+
+  /**
+  *Options to see the type of employees you want to see the information. <br>
+  *<b>pre: </b> Option 2 of the method called "showOptionDataEmployee" was selected. <br>
+  *<b>post: </b> Type of employees <br>
+  */
 
   public void optionShowEmployee(){
     System.out.println("Que tipo de empleados desas ver");
@@ -499,6 +695,13 @@ public class Menu{
     System.out.println("[2] Entrenador asistente");
     System.out.println("[3] Jugador");
   }
+
+  /**
+  *It allows to determine the tactic of an alignment. <br>
+  *<b>pre: </b> You must have selected the option to create an alignment, option 8.
+  *<b>post: </b>The tactic of the alignment was determined. <br>
+  @return newTactic
+  */
 
   public Tactic optionTactic(){
     System.out.println("[1] Posesion \n[2] Contra ataque \n[3] Presion alta \n[4] Por defecto");
@@ -524,6 +727,12 @@ public class Menu{
     return newTactic;
   }
 
+  /**
+  *Allows you to add an alignment to a selected team. <br>
+  *<b>pre: </b> Option 8 should have been selected and a team must exister. <br>
+  *<b>post: </b> An alignment has been added to the selected equipment. <br>
+  */
+
   public void addDataLineUp(){
     System.out.println("A que equipo le deseas agregar una alineacion");
     System.out.print(myClub.showNameNewTeam());
@@ -537,6 +746,12 @@ public class Menu{
     String formation = sc.nextLine();
     System.out.println(myClub.addLineUpToTheTeam(index1, dateLineUp, tactic, formation));
   }
+
+  /**
+  *Allows to add the trainers to the offices. <br>
+  *<b>pre: </b> At least one trainer of any kind exists, in addition to selecting option 9.
+  *<b>post: </b> A coach has been added to the office. <br>
+  */
 
   public void selectTheCoachToTheOffice(){
     System.out.println("Que tipo de entrenador deseas agregar a la oficina");
@@ -567,6 +782,12 @@ public class Menu{
     }
   }
 
+  /**
+  *Allows you to add a player to the dressing room according to the team he belongs to. <br>
+  *<b>pre: </b> At least one player exists in a team that must also exister, option 10.
+  *<b>post: </b> A player has been added to the team's dressing room <br>
+  */
+
   public void doOperationAddPlayerToTheDressing(){
     System.out.println("Selecciona el equipo de los jugadores que deseas agregar al camerino");
     System.out.print(myClub.showNameNewTeam());
@@ -576,6 +797,12 @@ public class Menu{
     int index2 = sc.nextInt()-1;
     System.out.println(myClub.addPlayerDressingRoom(index1, index2));
   }
+
+  /**
+  *It allows to calculate the market price of a main player or coach. <br>
+  *<b>pre: </b> At least one head coach or player must exist, option 11.
+  *<b>post: </b> The market price of the selected employee is ###. <br>
+  */
 
   public void calculatePriceMarket(){
     int index1 = 0;
@@ -602,6 +829,12 @@ public class Menu{
       System.out.println("Ingresa una opcion valida");
     }
   }
+
+  /**
+  *It allows to calculate the market level of a main player or coach. <br>
+  *<b>pre: </b> At least one head coach or player must exist, option 12.
+  *<b>post: </b> The market level of the selected employee is ###. <br>
+  */
 
   public void calculateLevel(){
     int index1 = 0;
