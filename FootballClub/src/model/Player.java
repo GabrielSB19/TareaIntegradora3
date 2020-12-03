@@ -8,10 +8,28 @@ import java.util.*;
 
 public class Player extends Employee implements CalculateOperation{
 
+  /*
+  Class Builder Attributes
+  */
+
   private int dorsal;
   private int amountGoal;
   private double average;
   private Position position;
+
+  /**
+  *Builder of the Player class. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> A Player type object has been created. <br>
+  @param nameEm name of the employee. nameEm ! = null
+  @param idEm employee id. idEm ! = null
+  @param salary employee's salary. salary must be greater than or equal to zero and salary ! = null
+  @param status employee status. status = inactive or status = active
+  @param dorsal employee's shirt number. dorsal must be greater than or equal to zero and dorsal ! = null
+  @param amountGoal number of goals. amountGoal must be greater than or equal to zero and amountGoal ! = null
+  @param average average of the player. average must be greater than or equal to zero and average ! = null
+  @param position player position. position = GOALKEEPER, DEFENCE, MIDFIELDER OR FORWARD
+  */
 
   public Player(String nameEm, int idEm, int salary, boolean status, int dorsal, int amountGoal, double average, Position position){
     super(nameEm, idEm, salary, status);
@@ -21,37 +39,100 @@ public class Player extends Employee implements CalculateOperation{
     this.position = position;
   }
 
+  /**
+  *Getter for the player's bib. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Player's bib <br>
+  @return dorsal
+  */
+
   public int getDorsal(){
     return dorsal;
   }
+
+  /**
+  *Setter for the player's bib. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Update the player's bib <br>
+  @param dorsal employee's shirt number. dorsal must be greater than or equal to zero and dorsal ! = null
+  */
 
   public void setDorsal(int dorsal){
     this.dorsal = dorsal;
   }
 
+  /**
+  *Getter for the number of goals made by the player. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The number of goals. <br>
+  @return amountGoal
+  */
+
   public int getAmountGoal(){
     return amountGoal;
   }
+
+  /**
+  *Setter for the number of goals made by the player. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Update the number of goals. <br>
+  @param amountGoal number of goals. amountGoal must be greater than or equal to zero and amountGoal ! = null
+  */
 
   public void setAmountGoal(int amountGoal){
     this.amountGoal = amountGoal;
   }
 
+  /**
+  *Getter for the qualification of the player. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Player rating. <br>
+  @return average
+  */
+
   public double getAverage(){
     return average;
   }
+
+  /**
+  *Setter for player qualification. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Updates the player's rating <br>
+  @param average average of the player. average must be greater than or equal to zero and average ! = null
+  */
 
   public void setAverage(double average){
     this.average = average;
   }
 
+  /**
+  *Getter for the position of the player. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Player position. <br>
+  @return position
+  */
+
   public Position getPosition(){
     return position;
   }
 
+  /**
+  *Setter for the position of the player. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> Updates the player's position. <br>
+  @param position player position. position = GOALKEEPER, DEFENCE, MIDFIELDER OR FORWARD
+  */
+
   public void setPosition(Position position){
     this.position = position;
   }
+
+  /**
+  *Allows to calculate the market price of a player. <br>
+  *<b>pre: </b> At least one player must exist. <br>
+  *<b>post: </b> The player's market price. <br>
+  @return priceMarketPlayer
+  */
 
   @Override
   public double priceMarket(){
@@ -74,6 +155,13 @@ public class Player extends Employee implements CalculateOperation{
     return priceMarketPlayer;
   }
 
+  /**
+  *Allows to calculate the market level of a player. <br>
+  *<b>pre: </b> At least one player must exist. <br>
+  *<b>post: </b> The player's market level. <br>
+  @return levelPlayer
+  */
+
   @Override
   public double lvlMarket(){
     double levelPlayer = 0;
@@ -94,6 +182,13 @@ public class Player extends Employee implements CalculateOperation{
     }
     return levelPlayer;
   }
+
+  /**
+  *Allows to show the specific information of the employees. <br>
+  *<b>pre: </b> At least one employee must be hired. <br>
+  *<b>post: </b> Employee's information dated <br>
+  @return msg
+  */
 
   @Override
   public String showData(){
