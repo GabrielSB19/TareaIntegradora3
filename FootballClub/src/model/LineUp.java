@@ -229,7 +229,7 @@ public class LineUp{
 
   /**
   *Allows to show the number of players per position. <br>
-  *<b>pre: </b> At least there is an alignment <br>
+  *<b>pre: </b> At least there is an alignment. <br>
   *<b>post: </b> The number of players per position. <br>
   @return msg
   */
