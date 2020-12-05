@@ -119,6 +119,13 @@ public class LineUp{
     return msg;
   }
 
+  /**
+  *It allows for the formation of the "-" in an arrangement of integers. <br>
+  *<b>pre: </b> At least there is an alignment <br>
+  *<b>post: </b> The arrangement with the positions of the players <br>
+  @return newFormationInInt
+  */
+
   public int[] formationSeparate(){
     newFormationInString = getFormation().split("-");
     newFormationInInt = new int [newFormationInString.length];
@@ -127,6 +134,14 @@ public class LineUp{
     }
     return newFormationInInt;
   }
+
+  /**
+  *It allows to determine the position of the players on the field, in a horizontal line. <br>
+  *<b>pre: </b> At least there is an alignment <br>
+  *<b>post: </b> An arrangement with the position of the players represented with false and true <br>
+  @param i the position of the arrangement of the method formationSeparate. i less than or equal to formationSeparate.length
+  @return newFormationInInt
+  */
 
   public boolean [] switchFormationInField(int i){
     fieldHorizontal = new boolean [7];
@@ -155,6 +170,13 @@ public class LineUp{
     return fieldHorizontal;
   }
 
+  /**
+  *Allows to give the vertical positions to the players. <br>
+  *<b>pre: </b> At least there is an alignment <br>
+  *<b>post: </b> The matrix with the positions of the players on the field. <br>
+  @return showFormation
+  */
+
   public boolean [][] showField(){
     for(int j = 0; j<7; j++){
       if(formationSeparate().length == 2){
@@ -180,6 +202,13 @@ public class LineUp{
     return showFormation;
   }
 
+  /**
+  *Allows to show the position of the players where 1 is a player and 0 is an empty space <br>
+  *<b>pre: </b> At least there is an alignment <br>
+  *<b>post: </b> The position of the players on the field represented by 1 and 0.
+  @return showFormation
+  */
+
   public String showFielBinary(){
     int [][] prueba = new int [10][7];
     String msg = "";
@@ -194,6 +223,34 @@ public class LineUp{
         msg += prueba[i][j]+" ";
       }
       msg += "\n";
+    }
+    return msg;
+  }
+
+  /**
+  *Allows to show the number of players per position. <br>
+  *<b>pre: </b> At least there is an alignment <br>
+  *<b>post: </b> The number of players per position. <br>
+  @return msg
+  */
+
+  public String showAmountPosicion(){
+    String msg = "";
+    if(formationSeparate().length == 3){
+      msg += "Hay "+formationSeparate()[0]+" Defensas\n";
+      msg += "Hay "+formationSeparate()[1]+" Volantes\n";
+      msg += "Hay "+formationSeparate()[2]+" Delanteros\n";
+    } else if(formationSeparate().length == 4){
+      int volantes = formationSeparate()[1]+formationSeparate()[2];
+      msg += "Hay "+formationSeparate()[0]+" Defensas\n";
+      msg += "Hay "+volantes+" Volantes\n";
+      msg += "Hay "+formationSeparate()[3]+" Delanteros\n";
+    } else if(formationSeparate().length == 5){
+      int volantes = formationSeparate()[1]+formationSeparate()[2];
+      int delanteros = formationSeparate()[3]+formationSeparate()[4];
+      msg += "Hay "+formationSeparate()[0]+" Defensas\n";
+      msg += "Hay "+volantes+" Volantes\n";
+      msg += "Hay "+delanteros+" Delanteros\n";
     }
     return msg;
   }

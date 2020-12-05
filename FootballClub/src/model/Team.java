@@ -231,6 +231,13 @@ public class Team{
     return msg;
   }
 
+  /**
+  *It allows to see a general information of the players that are part of the team. <br>
+  *<b>pre: </b> At least one player is associated with the team. <br>
+  *<b>post: </b> Player information <br>
+  @return msg
+  */
+
   public String dataPlayerInTeam(){
     String msg = "";
     for(int i = 0; i<NUM_MAX_PLAYER; i++){
@@ -257,6 +264,13 @@ public class Team{
     return playerTeam[index2];
   }
 
+  /**
+  *It allows to see the formations that the equipment has. <br>
+  *<b>pre: </b> At least the equipment has an alignment. <br>
+  *<b>post: </b> Index of the alignments <br>
+  @return msg
+  */
+
   public String showNameLineUpFormation(){
     String msg = "";
     for(int i = 0; i<lineUpTeam.size(); i++){
@@ -265,12 +279,22 @@ public class Team{
     return msg;
   }
 
+  /**
+  *Displays the formation of the selected alignment in the field. <br>
+  *<b>pre: </b> At least the equipment has an alignment. <br>
+  *<b>post: </b> Shows the field with the players. <br>
+  @param index2 index of the selected alignment. index2 less or equal to the number of alignments.
+  @return msg
+  */
+
   public String showFieldLineUp(int index2){
     String msg = "";
     msg += "********** Alineacion ***********\n";
     msg += lineUpTeam.get(index2).showNormalLineUp()+"\n";
     msg += "***** Formacion en el campo *****\n";
     msg += lineUpTeam.get(index2).showFielBinary()+"\n";
+    msg += "Numero de jugadores segun el tipo\n";
+    msg += lineUpTeam.get(index2).showAmountPosicion()+"\n";
     msg += "*********************************\n";
     return msg;
   }
