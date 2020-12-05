@@ -209,6 +209,7 @@ public class Team{
     for(int i = 0; i<lineUpTeam.size(); i++){
       msg += lineUpTeam.get(i).showNormalLineUp();
     }
+    msg += dataPlayerInTeam()+"\n";
     msg += "************************************\n";
     return msg;
   }
@@ -225,6 +226,20 @@ public class Team{
     for(int i = 0; i<NUM_MAX_PLAYER; i++){
       if(playerTeam[i] != null){
         msg += "["+(i+1)+"]"+playerTeam[i].getNameEm()+"\n";
+      }
+    }
+    return msg;
+  }
+
+  public String dataPlayerInTeam(){
+    String msg = "";
+    for(int i = 0; i<NUM_MAX_PLAYER; i++){
+      if(playerTeam[i] != null){
+        msg += "********* Jugadores *********\n";
+        msg += "Nombre: "+playerTeam[i].getNameEm()+"\n";
+        msg += "Dorsal: "+playerTeam[i].getDorsal()+"\n";
+        msg += "Posicion: "+playerTeam[i].getPosition()+"\n";
+        msg += "*****************************\n";
       }
     }
     return msg;

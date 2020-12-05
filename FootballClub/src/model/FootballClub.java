@@ -60,6 +60,8 @@ public class FootballClub{
     arrayAsistentCoach = new ArrayList<AsistentCoach>();
     arrayPlayer = new ArrayList<Player>();
     team = new Team [NUM_MAX_TEAM];
+    team[0] = new Team ("Team A");
+    team[1] = new Team ("Team B");
     sectorOffice = new Coach[HORIZONTALSECTOROFFICE][VERTICALSECTOROFFICE];
     dressingRoom1 = new Player [HORIZONTALDRESSINGROOMA][VERTICALDRESSINGROOMA];
     dressingRoom2 = new Player [HORIZONTALDRESSINGROOMB][VERTICALDRESSINGROOMB];
@@ -218,7 +220,7 @@ public class FootballClub{
       }
     }
     if(x == 0){
-      nameEmployee = "No existen empleados de este tipo";
+      nameEmployee = "No existen empleados de este tipo\n";
     }
     return nameEmployee;
   }
@@ -262,7 +264,7 @@ public class FootballClub{
       }
     }
     if(x == 0){
-      nameEmployee = "No existe empleados de este tipo";
+      nameEmployee = "No existe empleados de este tipo\n";
     }
     return nameEmployee;
   }
@@ -279,6 +281,37 @@ public class FootballClub{
     String msg = "";
     if(employeeClub.size() != 0){
       for(int i = 0; i<employeeClub.size(); i++){
+        if(employeeClub.get(i) instanceof MainCoach){
+          for(int j = 0; j<arrayMainCoach.size(); j++){
+            if(employeeClub.get(i).getNameEm().equalsIgnoreCase(name)){
+              if(employeeClub.get(i).getNameEm().equalsIgnoreCase(arrayMainCoach.get(j).getNameEm())){
+                if(employeeClub.get(i).getIdEm() == arrayMainCoach.get(j).getIdEm()){
+                  arrayMainCoach.remove(j);
+                }
+              }
+            }
+          }
+        } else if(employeeClub.get(i) instanceof AsistentCoach){
+          for(int j = 0; j<arrayAsistentCoach.size(); j++){
+            if(employeeClub.get(i).getNameEm().equalsIgnoreCase(name)){
+              if(employeeClub.get(i).getNameEm().equalsIgnoreCase(arrayAsistentCoach.get(j).getNameEm())){
+                if(employeeClub.get(i).getIdEm() == arrayAsistentCoach.get(j).getIdEm()){
+                  arrayAsistentCoach.remove(j);
+                }
+              }
+            }
+          }
+        } else if(employeeClub.get(i) instanceof Player){
+          for(int j = 0; j<arrayPlayer.size(); j++){
+            if(employeeClub.get(i).getNameEm().equalsIgnoreCase(name)){
+              if(employeeClub.get(i).getNameEm().equalsIgnoreCase(arrayPlayer.get(j).getNameEm())){
+                if(employeeClub.get(i).getIdEm() == arrayPlayer.get(j).getIdEm()){
+                  arrayPlayer.remove(j);
+                }
+              }
+            }
+          }
+        }
         if(employeeClub.get(i).getNameEm().equalsIgnoreCase(name)){
           employeeClub.remove(i);
           msg = "El empleado ha sido despedido";
@@ -295,37 +328,13 @@ public class FootballClub{
   }
 
   /**
-  *Allows the club to create a new team. <br>
-  *<b>pre: </b> You can only create two teams at most. <br>
-  *<b>post: </b> The team has been created. <br>
-  @param nameTeam name. nameTeam != null
+  *Allows to show the name of the created teams<br>
+  *<b>pre: </b> At least one team exists. <br>
+  *<b>post: </b> Shows the names of the existing team. <br>
   @return msg
   */
 
-  public String addTeam(String nameTeam){
-    boolean out = false;
-    String msg = "";
-    for(int i = 0; i<NUM_MAX_TEAM && !out; i++){
-      if(team[i] == null){
-        team[i] = new Team(nameTeam);
-        msg = "El equipo ha sido creado";
-        out = true;
-      }
-    }
-    if(!out){
-      msg = "El equipo no ha sido creado debido a que excede el numero de equipos diponibles";
-    }
-    return msg;
-  }
-
-  /**
-  *Allows to show the name of the created equipments<br>
-  *<b>pre: </b> At least one device exists. <br>
-  *<b>post: </b> Shows the names of the existing equipment. <br>
-  @return msg
-  */
-
-  public String showNameNewTeam(){
+  public String showNameTeam(){
     String msg = "";
     for(int i = 0; i<NUM_MAX_TEAM; i++){
       if(team[i] != null){
@@ -342,7 +351,7 @@ public class FootballClub{
   @return msg
   */
 
-  public String showNameOptionMainCoachTeam(){
+  public String showIndexNameMainCoach(){
     String msg = "";
     int x = 0;
     for(int i = 0; i<arrayMainCoach.size(); i++){
@@ -362,7 +371,7 @@ public class FootballClub{
    @return msg
   */
 
-  public String showNameOptionAsistenCoachTeam(){
+  public String showIndexNameAsistenCoach(){
     String msg = "";
     int x = 0;
     for(int i = 0; i<arrayAsistentCoach.size(); i++){
@@ -370,7 +379,7 @@ public class FootballClub{
       x++;
     }
     if(x == 0){
-      msg = "No hay entrenadores disponibles, presiona la tecla Enter";
+      msg = "No hay entrenadores disponibles\n";
     }
     return msg;
   }
@@ -382,7 +391,7 @@ public class FootballClub{
   @return msg
   */
 
-  public String showNameOptionPlayer(){
+  public String showIndexNamePlayer(){
     String msg = "";
     int x = 0;
     for(int i = 0; i<arrayPlayer.size(); i++){

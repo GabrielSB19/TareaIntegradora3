@@ -14,23 +14,31 @@ public class Menu{
   Constants to execute the user's choice
   */
 
+  private static final int EMPLOYEE = 1;
+  private static final int TEAM = 2;
+  private static final int INSTALLATIONS = 3;
+  private static final int SHOW = 4;
+  private static final int EXIT = 0;
+
   private static final int ADDEMPLOYEE = 1;
   private static final int REMOVEEMPLOYEE = 2;
-  private static final int ADDTEAM = 3;
-  private static final int ADDEMPLOYEETOTEAM = 4;
-  private static final int UPTADEDATAEMPLOYEE = 5;
-  private static final int SHOWDATAEMPLOYEE = 6;
-  private static final int SHOWDATATEAM = 7;
-  private static final int ADDLINEUPTOTEAM = 8;
-  private static final int ADDCOACHSECTOROFFICE = 9;
-  private static final int ADDPLAYERDRESSINGROOM = 10;
-  private static final int CALCULATEPRICEMARKET = 11;
-  private static final int CALCULATELEVEL = 12;
-  private static final int SHOWINFOCLUB = 13;
-  private static final int SHOWPOSITIONSECTOROFFICE = 14;
-  private static final int SHOWPOSITIONDRESSING = 15;
-  private static final int SHOWFORMATIONINFORMAT = 16;
-  private static final int EXIT = 0;
+  private static final int UPTADEDATAEMPLOYEE = 3;
+  private static final int CALCULATEPRICEMARKET = 4;
+  private static final int CALCULATELEVEL = 5;
+
+  private static final int ADDEMPLOYEETOTEAM = 1;
+  private static final int ADDLINEUPTOTEAM = 2;
+
+  private static final int ADDCOACHSECTOROFFICE = 1;
+  private static final int ADDPLAYERDRESSINGROOM = 2;
+
+  private static final int SHOWDATAEMPLOYEE = 1;
+  private static final int SHOWDATATEAM = 2;
+  private static final int SHOWINFOCLUB = 3;
+  private static final int SHOWPOSITIONSECTOROFFICE = 4;
+  private static final int SHOWPOSITIONDRESSING = 5;
+  private static final int SHOWFORMATIONINFORMAT = 6;
+
 
   /*
   Defining objects
@@ -49,7 +57,6 @@ public class Menu{
   public static void welcomeToTheClub(){
     System.out.println("*******************************************");
     System.out.println("Bienvenido al club de Futbol Deportivo Cali");
-    System.out.println("*******************************************");
   }
 
   /**
@@ -58,26 +65,73 @@ public class Menu{
   *<b>post: </b> All options have been shown. <br>
   */
 
-  public void showMenu(){
+  public void showMenuPrincipal(){
     System.out.println("*******************************************");
-    System.out.println("Selecciona la opcion que deseas realizar");
-    System.out.println("[1] Contratar un empleado al club");
-    System.out.println("[2] Despedir un empleado del club");
-    System.out.println("[3] Agregar un equipo (Solo se podran agregar 2)");
-    System.out.println("[4] Agregar empleados a un equipo");
-    System.out.println("[5] Actualizar informacion de los empleados");
-    System.out.println("[6] Mostrar la informacion de los empleados");
-    System.out.println("[7] Mostrar informacion de los equipos");
-    System.out.println("[8] Agregar alineacion a un equipo");
-    System.out.println("[9] Agregar entrenadores a las oficinas");
-    System.out.println("[10] Agregar jugadores a los camerinos");
-    System.out.println("[11] Calcular el precio de mercado de los jugadores y entrenadores");
-    System.out.println("[12] Calcular el nivel de los jugadores y entrenadores");
-    System.out.println("[13] Ver la informacion del club");
-    System.out.println("[14] Ver la posicion de los entrenadores en el sector de oficinas");
-    System.out.println("[15] Ver la posicion de los jugadores en los camerinos");
-    System.out.println("[16] Ver las alineaciones en el campo");
-    System.out.println("[0] Salir");
+    System.out.println("Que tipo de acciones deseas realizar");
+    System.out.println("[1] Acciones relacionados con los empleados");
+    System.out.println("[2] Acciones relacionadas con los equipos");
+    System.out.println("[3] Acciones relacionadas con mostrar informacion");
+    System.out.println("[4] Acciones relacionados con las instalaciones del club");
+    System.out.println("[0] Salir del programa");
+    System.out.println("*******************************************");
+  }
+
+  /**
+  *Show the available options that can be made with the players. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> All options have been show. <br>
+  */
+
+  public void showMenuEmployee(){
+    System.out.println("Selecciona la opcion relacionada con los empleados");
+    System.out.println("[1] Contratar empleados");
+    System.out.println("[2] Despedir empleados");
+    System.out.println("[3] Actualizar la informacion de los empleados");
+    System.out.println("[4] Calcular el precio de mercado de los empleados");
+    System.out.println("[5] Calcular el nivel de mercado de los empleados");
+    System.out.println("*******************************************");
+  }
+
+  /**
+  *Show the available options that can be made with the team. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> All options have been show. <br>
+  */
+
+  public void showMenuTeam(){
+    System.out.println("Seleeciona la opcion relacionada con los equipo");
+    System.out.println("[1] Agregar empleados a un equipo");
+    System.out.println("[2] Agregar alineacion");
+    System.out.println("*******************************************");
+  }
+
+  /**
+  *Show the available options that can be made with the installations. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> All options have been show. <br>
+  */
+
+  public void showMenuInstallations(){
+    System.out.println("Selecciona la opcion relacionada con las instalaciones");
+    System.out.println("[1] Agregar entrenadores a las oficinas");
+    System.out.println("[2] Agregar jugadores a los camerinos");
+    System.out.println("*******************************************");
+  }
+
+  /**
+  *Show the available options that can be made with the information. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> All options have been show. <br>
+  */
+
+  public void showMenuShow(){
+    System.out.println("Selecciona la opcion relacionada con ver la informacion del club");
+    System.out.println("[1] Ver la informacion de los empleados");
+    System.out.println("[2] Ver informacion de los equipos");
+    System.out.println("[3] Ver la informacion del club");
+    System.out.println("[4] Ver la posicion de los entrenadores en el sector de oficinas");
+    System.out.println("[5] Ver la posicion de los jugadores en los camerinos");
+    System.out.println("[6] Ver las alineaciones en el campo");
     System.out.println("*******************************************");
   }
 
@@ -103,46 +157,36 @@ public class Menu{
 
   public void doOperation(int choice){
     switch (choice){
-      case ADDEMPLOYEE:
-      showDoOperationEmployee();
+      case EMPLOYEE:
+      showMenuEmployee();
       doOperationEmployee(readOption());
       break;
-      case REMOVEEMPLOYEE:
-      showDoOperationEmployeeRemove();
-      doOperationRemoveEmployee(readOption());
-      selectionEmployeeRemove();
+      case TEAM:
+      showMenuTeam();
+      doOperationTeam(readOption());
       break;
-      case ADDTEAM:
-      addNewTeam();
+      case INSTALLATIONS:
+      showMenuInstallations();
+      doOperationInstallations(readOption());
       break;
-      case ADDEMPLOYEETOTEAM:
-      doOperationAddEmployeeToTeam();
+      case SHOW:
+      showMenuShow();
+      doOperationShow(readOption());
       break;
-      case UPTADEDATAEMPLOYEE:
-      showDoOperationEmployee();
-      doOperationUptadeDataEmployee(readOption());
+      case EXIT:
+      System.exit(0);
       break;
-      case SHOWDATAEMPLOYEE:
-      showOptionDataEmployee();
-      doOperationShowEmployee(readOption());
-      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+/*
       case SHOWDATATEAM:
       System.out.print(myClub.showDataTeam());
       break;
       case ADDLINEUPTOTEAM:
       addDataLineUp();
-      break;
-      case ADDCOACHSECTOROFFICE:
-      selectTheCoachToTheOffice();
-      break;
-      case ADDPLAYERDRESSINGROOM:
-      doOperationAddPlayerToTheDressing();
-      break;
-      case CALCULATEPRICEMARKET:
-      calculatePriceMarket();
-      break;
-      case CALCULATELEVEL:
-      calculateLevel();
       break;
       case SHOWINFOCLUB:
       System.out.print(myClub.showInformationClub());
@@ -164,6 +208,8 @@ public class Menu{
     }
   }
 
+  */
+
   /**
   *Execute the option selected by the user. <br>
   *<b>pre: </b> An option has been selected <br>
@@ -173,10 +219,42 @@ public class Menu{
   public void startProgram(){
     int option;
     do{
-      showMenu();
+      showMenuPrincipal();
       option = readOption();
       doOperation(option);
-    } while(option != 18);
+    } while(option != 6);
+  }
+
+  /**
+  *Switch that allows to select the action to be executed of type employee. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The option to be executed has been selected. <br>
+  @param choice User's option to run. choice must be an available option.
+  */
+
+  public void doOperationEmployee(int choice){
+    switch(choice){
+      case ADDEMPLOYEE:
+      showTypeEmployee();
+      doOperationAddEmployee(readOption());
+      break;
+      case REMOVEEMPLOYEE:
+      showTypeEmployee();
+      doOperationRemoveEmployee(readOption());
+      break;
+      case UPTADEDATAEMPLOYEE:
+      showTypeEmployee();
+      doOperationUptadeDataEmployee(readOption());
+      break;
+      case CALCULATEPRICEMARKET:
+      calculatePriceMarket();
+      break;
+      case CALCULATELEVEL:
+      calculateLevel();
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
   }
 
   /**
@@ -185,11 +263,9 @@ public class Menu{
   *<b>post: </b> The types of employees have been shown <br>
   */
 
-  public void showDoOperationEmployee(){
-    System.out.println("Selecciona el tipo de empleado que deseas agregar");
-    System.out.println("[1] Entrenador principal");
-    System.out.println("[2] Entrenador asistente");
-    System.out.println("[3] Jugador");
+  public void showTypeEmployee(){
+    System.out.println("Selecciona el tipo de empleado");
+    System.out.println("[1] Entrenador principal \n[2] Entrenador asistente \n[3] Jugador");
   }
 
   /**
@@ -199,7 +275,7 @@ public class Menu{
   @param choice User's option to run. choice must be an available option.
   */
 
-  public void doOperationEmployee(int choice){
+  public void doOperationAddEmployee(int choice){
     switch(choice){
       case 1:
       addMainCoach();
@@ -225,17 +301,14 @@ public class Menu{
 
   public boolean optionStatus(){
     boolean status = false;
-    System.out.println("[1] Activo");
-    System.out.println("[2] Inactivo");
+    System.out.println("[1] Activo \n[2] Inactivo");
     int option = sc.nextInt();
     sc.nextLine();
     if(option == 1){
       status = true;
-    }
-    else if(option == 2){
+    } else if(option == 2){
       status = false;
-    }
-    return status;
+    } return status;
   }
 
   /**
@@ -277,17 +350,14 @@ public class Menu{
 
   public boolean wasProfesioanl(){
     boolean playerProfesional = false;
-    System.out.println("[1] Fue jugador profesional");
-    System.out.println("[2] NO fue jugador profesional");
+    System.out.println("[1] Fue jugador profesional \n[2] NO fue jugador profesional");
     int option = sc.nextInt();
     sc.nextLine();
-    if (option == 1){
+    if(option == 1){
       playerProfesional = true;
-    }
-    else if (option == 2){
+    } else if (option == 2){
       playerProfesional = false;
-    }
-    return playerProfesional;
+    } return playerProfesional;
   }
 
   /**
@@ -317,8 +387,7 @@ public class Menu{
       break;
       default:
       System.out.println("Ingresa una opcion valida");
-    }
-    return newExpertise;
+    } return newExpertise;
   }
 
   /**
@@ -375,8 +444,7 @@ public class Menu{
       break;
       default:
       System.out.println("Ingresa una opcion valida");
-    }
-    return newPosition;
+    } return newPosition;
   }
 
   /**
@@ -411,20 +479,6 @@ public class Menu{
   }
 
   /**
-  *Allows you to see the type of employees to dismiss from the club <br>
-  *<b>pre: </b> You should have selected option 2 of firing an employee. <br>
-  *<b>post: </b> The types of employees to be fired have been shown. <br>
-  */
-
-  public void showDoOperationEmployeeRemove(){
-    System.out.println("Selecciona el tipo de empleado que deseas despedir");
-    System.out.println("[1] Entrenador principal");
-    System.out.println("[2] Entrenador asistente");
-    System.out.println("[3] Jugador");
-    System.out.println("En caso de que no existan empleados presiona la tecla Enter");
-  }
-
-  /**
   *Allows you to select the type of employee to be fired from the club. <br>
   *<b>pre: </b> At least one method of firing an employee must have been executed. <br>
   *<b>post: </b> An employee has been fired. <br>
@@ -432,19 +486,21 @@ public class Menu{
   */
 
   public void doOperationRemoveEmployee(int choice){
-      switch(choice){
-        case 1:
-        System.out.print(myClub.showNameMainCoach());
-        break;
-        case 2:
-        System.out.print(myClub.showNameAsistenCoach());
-        break;
-        case 3:
-        System.out.print(myClub.showNamePlayer());
-        break;
-        default:
-        System.out.println("Ingresa una opcion validas");
-      }
+    switch(choice){
+      case 1:
+      System.out.print(myClub.showNameMainCoach());
+      break;
+      case 2:
+      System.out.print(myClub.showNameAsistenCoach());
+      break;
+      case 3:
+      System.out.print(myClub.showNamePlayer());
+      break;
+      default:
+      System.out.println("Ingresa una opcion validas");
+    }
+    System.out.println("Si no existe ningun empleado presiona enter");
+    selectionEmployeeRemove();
   }
 
   /**
@@ -457,89 +513,6 @@ public class Menu{
     System.out.println("Ingresa el nombre del empleado que deseas eliminar");
     String name = sc.nextLine();
     System.out.println(myClub.removeEmployee(name));
-  }
-
-  /**
-  *Allows to add a new team to the club, only 2 can be added.
-  *<b>pre: </b> You should have selected option 3 to add an employee. <br>
-  *<b>post: </b> New equipment has been added <br>
-  */
-
-  public void addNewTeam(){
-    System.out.println("Ingresa el nombre del equipo que deseas crear");
-    String nameTeam = sc.nextLine();
-    System.out.println(myClub.addTeam(nameTeam));
-  }
-
-  /**
-  *Allows you to select the type of employee and the employee to be added to a team. <br>
-  *<b>pre: </b> At least one employee of the selected employee type must be hired and have selected option 4.
-  *<b>post: </b> An employee has been added to a team <br>
-  */
-
-  public void doOperationAddEmployeeToTeam(){
-    System.out.println("A cual equipo le deseas agregar un empleado");
-    System.out.print(myClub.showNameNewTeam());
-    int index1 = sc.nextInt()-1;
-    sc.nextLine();
-    showDoOperationEmployee();
-    int choice = sc.nextInt();
-    sc.nextLine();
-    switch(choice){
-      case 1:
-      System.out.println(myClub.addMainCoachToTheTeam(index1, addMainCoachTeam()));
-      break;
-      case 2:
-      System.out.println(myClub.addAsistentCoachToTheTeam(index1, addAsistentCoachTeam()));
-      break;
-      case 3:
-      System.out.println(myClub.addPlayerToTheTeam(index1, addPlayerTeam()));
-      break;
-      default:
-      System.out.println("Ingresa una opcion valida");
-    }
-  }
-
-  /**
-  *Allows you to select the head coach to add to a team. <br>
-  *<b>pre: </b> At least one head coach and team exists, besides you can only add one per team. <br>
-  *<b>post: </b> A head coach has been added to the selected team <br>
-  @return index2
-  */
-
-  public int addMainCoachTeam(){
-    System.out.println("Que entrendor principal deseas elegir para el equipo seleccionado");
-    System.out.print(myClub.showNameOptionMainCoachTeam());
-    int index2 = sc.nextInt()-1;
-    return index2;
-  }
-
-  /**
-  *Allows you to select an assistant coach to add to a team. <br>
-  *<b>pre: </b> At least one assistant coach and team exists, besides you can only add three per team. <br>
-  *<b>post: </b> An assistant coach has been added to the selected team <br>
-  @return index3
-  */
-
-  public int addAsistentCoachTeam(){
-    System.out.println("Que entrenador asistente deseas elegir para el equipo seleccionado");
-    System.out.print(myClub.showNameOptionAsistenCoachTeam());
-    int index3 = sc.nextInt()-1;
-    return index3;
-  }
-
-  /**
-  *Allows you to select a player to add to a team. <br>
-  *<b>pre: </b> At least one player and team exists, moreover you can only add up to 25 players per team. <br>
-  *<b>post: </b> The player has been added to the selected team <br>
-  @return index4
-  */
-
-  public int addPlayerTeam(){
-    System.out.println("Que jugador deseas elegir para el equipo seleccionado");
-    System.out.print(myClub.showNameOptionPlayer());
-    int index4 = sc.nextInt()-1;
-    return index4;
   }
 
   /**
@@ -574,7 +547,7 @@ public class Menu{
   public void uptadeDataMainCoach(){
     System.out.println("No podras actualizar el nombre ni el ID del entrenador principal");
     System.out.println("Selecciona el entrenador al cual le deseas actualizar los datos");
-    System.out.print(myClub.showNameOptionMainCoachTeam());
+    System.out.print(myClub.showIndexNameMainCoach());
     int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Acutaliza el salario del entrenador principal");
@@ -602,7 +575,7 @@ public class Menu{
 
   public void uptadeDataAsistenCoach(){
     System.out.println("No podras actualizar el nombre ni el ID del entrenador asistente");
-    System.out.print(myClub.showNameOptionAsistenCoachTeam());
+    System.out.print(myClub.showIndexNameAsistenCoach());
     int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Actualiza el salario del entrenador asistente");
@@ -628,7 +601,7 @@ public class Menu{
 
   public void uptadeDataPlayer(){
     System.out.println("No podras actualizar el nombre ni el ID del jugador");
-    System.out.print(myClub.showNameOptionPlayer());
+    System.out.print(myClub.showIndexNamePlayer());
     int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Actualia el salario del jugador");
@@ -651,35 +624,31 @@ public class Menu{
   }
 
   /**
-  *Allows to show the information of the employees, according to the selected type. <br>
-  *<b>pre: </b>At least one employee exists, in addition to selecting option 6.
-  *<b>post: </b> Employees' information has been shown<br>
-  @param choice User's option to run. choice must be an available option.
+  *It allows to calculate the market price of a main player or coach. <br>
+  *<b>pre: </b> At least one head coach or player must exist, option 11.
+  *<b>post: </b> The market price of the selected employee is ###. <br>
   */
 
-  public void doOperationShowEmployee(int choice){
-    switch(choice){
+  public void calculatePriceMarket(){
+    System.out.println("A que tipo de empleado deseas calcularle el precio de mercado");
+    System.out.println("[1] Entrenador Principal \n[2] Jugador");
+    int index1 = 0;
+    int option = sc.nextInt();
+    sc.nextLine();
+    switch(option){
       case 1:
-      System.out.print(myClub.showDataMainCoach());
-      System.out.print(myClub.showDataAsistentCoach());
-      System.out.print(myClub.showDataPlayer());
+      System.out.println("Selecciona un entrenador principal");
+      System.out.print(myClub.showIndexNameMainCoach());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newPriceMarketCoach(index1));
       break;
       case 2:
-      optionShowEmployee();
-      int option = sc.nextInt();
-      switch(option){
-        case 1:
-        System.out.print(myClub.showDataMainCoach());
-        break;
-        case 2:
-        System.out.print(myClub.showDataAsistentCoach());
-        break;
-        case 3:
-        System.out.print(myClub.showDataPlayer());
-        break;
-        default:
-        System.out.println("Ingresa una opcion valida");
-      }
+      System.out.println("Selecciona un jugador");
+      System.out.print(myClub.showIndexNamePlayer());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newPriceMarketPlayer(index1));
       break;
       default:
       System.out.println("Ingresa una opcion valida");
@@ -687,28 +656,126 @@ public class Menu{
   }
 
   /**
-  *Options to see the type of employee information, individual by type or group <br>
-  *<b>pre: </b> Option 6 has been selected.
-  *<b>post: </b> What type of data you want to see, group or individual by type. <br>
+  *It allows to calculate the market level of a main player or coach. <br>
+  *<b>pre: </b> At least one head coach or player must exist, option 12.
+  *<b>post: </b> The market level of the selected employee is ###. <br>
   */
 
-  public void showOptionDataEmployee(){
-    System.out.println("Que deseas ver");
-    System.out.println("[1] La informacion de todos los empleados");
-    System.out.println("[2] La informacion del empleado segun el tipo");
+  public void calculateLevel(){
+    System.out.println("A que tipo de empleado deseas calcularle el nivel");
+    System.out.println("[1] Entrenador Principal \n[2] Jugador");
+    int index1 = 0;
+    int option = sc.nextInt();
+    sc.nextLine();
+    switch(option){
+      case 1:
+      System.out.println("Selecciona un entrenador principal");
+      System.out.print(myClub.showIndexNameMainCoach());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newLevelCoach(index1));
+      break;
+      case 2:
+      System.out.println("Selecciona un jugador");
+      System.out.print(myClub.showIndexNamePlayer());
+      index1 = sc.nextInt()-1;
+      sc.nextLine();
+      System.out.print(myClub.newLevelPlayer(index1));
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
   }
 
   /**
-  *Options to see the type of employees you want to see the information. <br>
-  *<b>pre: </b> Option 2 of the method called "showOptionDataEmployee" was selected. <br>
-  *<b>post: </b> Type of employees <br>
+  *Switch that allows to select the action to be executed of type employee. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The option to be executed has been selected. <br>
+  @param choice User's option to run. choice must be an available option.
   */
 
-  public void optionShowEmployee(){
-    System.out.println("Que tipo de empleados desas ver");
-    System.out.println("[1] Entrenador principal");
-    System.out.println("[2] Entrenador asistente");
-    System.out.println("[3] Jugador");
+  public void doOperationTeam(int choice){
+    switch(choice){
+    case ADDEMPLOYEETOTEAM:
+    doOperationAddEmployeeToTeam();
+    break;
+    case ADDLINEUPTOTEAM:
+    addDataLineUp();
+    break;
+    default:
+    System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  /**
+  *Allows you to select the type of employee and the employee to be added to a team. <br>
+  *<b>pre: </b> At least one employee of the selected employee type must be hired and have selected option 4.
+  *<b>post: </b> An employee has been added to a team <br>
+  */
+
+  public void doOperationAddEmployeeToTeam(){
+    System.out.println("A cual equipo le deseas agregar un empleado");
+    System.out.print(myClub.showNameTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    showTypeEmployee();
+    int choice = sc.nextInt();
+    sc.nextLine();
+    switch(choice){
+      case 1:
+      System.out.println(myClub.addMainCoachToTheTeam(index1, addMainCoachTeam()));
+      break;
+      case 2:
+      System.out.println(myClub.addAsistentCoachToTheTeam(index1, addAsistentCoachTeam()));
+      break;
+      case 3:
+      System.out.println(myClub.addPlayerToTheTeam(index1, addPlayerTeam()));
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");
+    }
+  }
+
+  /**
+  *Allows you to select the head coach to add to a team. <br>
+  *<b>pre: </b> At least one head coach and team exists, besides you can only add one per team. <br>
+  *<b>post: </b> A head coach has been added to the selected team <br>
+  @return index2
+  */
+
+  public int addMainCoachTeam(){
+    System.out.println("Que entrendor principal deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showIndexNameMainCoach());
+    int index2 = sc.nextInt()-1;
+    return index2;
+  }
+
+  /**
+  *Allows you to select an assistant coach to add to a team. <br>
+  *<b>pre: </b> At least one assistant coach and team exists, besides you can only add three per team. <br>
+  *<b>post: </b> An assistant coach has been added to the selected team <br>
+  @return index3
+  */
+
+  public int addAsistentCoachTeam(){
+    System.out.println("Que entrenador asistente deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showIndexNameAsistenCoach());
+    int index3 = sc.nextInt()-1;
+    return index3;
+  }
+
+  /**
+  *Allows you to select a player to add to a team. <br>
+  *<b>pre: </b> At least one player and team exists, moreover you can only add up to 25 players per team. <br>
+  *<b>post: </b> The player has been added to the selected team <br>
+  @return index4
+  */
+
+  public int addPlayerTeam(){
+    System.out.println("Que jugador deseas elegir para el equipo seleccionado");
+    System.out.print(myClub.showIndexNamePlayer());
+    int index4 = sc.nextInt()-1;
+    return index4;
   }
 
   /**
@@ -750,7 +817,7 @@ public class Menu{
 
   public void addDataLineUp(){
     System.out.println("A que equipo le deseas agregar una alineacion");
-    System.out.print(myClub.showNameNewTeam());
+    System.out.print(myClub.showNameTeam());
     int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Ingresa la fecha en la que se creo la alineacion");
@@ -760,6 +827,26 @@ public class Menu{
     System.out.println("Ingresa la formacion, recuerda el formato N-N-N");
     String formation = sc.nextLine();
     System.out.println(myClub.addLineUpToTheTeam(index1, dateLineUp, tactic, formation));
+  }
+
+  /**
+  *Switch that allows to select the action to be executed of type employee. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The option to be executed has been selected. <br>
+  @param choice User's option to run. choice must be an available option.
+  */
+
+  public void doOperationInstallations(int choice){
+    switch(choice){
+    case ADDCOACHSECTOROFFICE:
+    selectTheCoachToTheOffice();
+    break;
+    case ADDPLAYERDRESSINGROOM:
+    doOperationAddPlayerToTheDressing();
+    break;
+    default:
+    System.out.println("Ingresa una opcion valida");
+    }
   }
 
   /**
@@ -779,13 +866,13 @@ public class Menu{
     switch(index1){
       case 0:
       System.out.println("Selecciona un entrenador principal");
-      System.out.print(myClub.showNameOptionMainCoachTeam());
+      System.out.print(myClub.showIndexNameMainCoach());
       index2 = sc.nextInt()-1;
       sc.nextLine();
       break;
       case 1:
       System.out.println("Selecciona un entrenador asistente");
-      System.out.print(myClub.showNameOptionAsistenCoachTeam());
+      System.out.print(myClub.showIndexNameAsistenCoach());
       index2 = sc.nextInt()-1;
       break;
       default:
@@ -805,7 +892,7 @@ public class Menu{
 
   public void doOperationAddPlayerToTheDressing(){
     System.out.println("Selecciona el equipo de los jugadores que deseas agregar al camerino");
-    System.out.print(myClub.showNameNewTeam());
+    System.out.print(myClub.showNameTeam());
     int index1 = sc.nextInt()-1;
     System.out.print(myClub.showNameOfPlayerToTheTeam(index1));
     System.out.println("Selecciona el jugador que deseas agregar");
@@ -814,31 +901,68 @@ public class Menu{
   }
 
   /**
-  *It allows to calculate the market price of a main player or coach. <br>
-  *<b>pre: </b> At least one head coach or player must exist, option 11.
-  *<b>post: </b> The market price of the selected employee is ###. <br>
+  *Switch that allows to select the action to be executed of type show. <br>
+  *<b>pre: </b><br>
+  *<b>post: </b> The option to be executed has been selected. <br>
+  @param choice User's option to run. choice must be an available option.
   */
 
-  public void calculatePriceMarket(){
-    int index1 = 0;
-    System.out.println("A que tipo de empleado deseas calcularle el precio de mercado");
-    System.out.println("[1] Entrenador Principal \n[2] Jugador");
-    int option = sc.nextInt();
-    sc.nextLine();
-    switch(option){
+  public void doOperationShow(int choice){
+    switch(choice){
+      case SHOWDATAEMPLOYEE:
+      showOptionDataEmployee();
+      doOperationShowEmployee(readOption());
+      break;
+      case SHOWDATATEAM:
+      System.out.print(myClub.showDataTeam());
+      break;
+      case SHOWINFOCLUB:
+      System.out.print(myClub.showInformationClub());
+      break;
+      case SHOWPOSITIONSECTOROFFICE:
+      System.out.print(myClub.showSectorOffice());
+      break;
+      case SHOWPOSITIONDRESSING:
+      showTwoDressingRoom();
+      break;
+      case SHOWFORMATIONINFORMAT:
+      selectShowLineUp();
+      break;
+      default:
+      System.out.println("Ingresa una opcion valida");;
+    }
+  }
+
+  /**
+  *Allows to show the information of the employees, according to the selected type. <br>
+  *<b>pre: </b>At least one employee exists, in addition to selecting option 6.
+  *<b>post: </b> Employees' information has been shown<br>
+  @param choice User's option to run. choice must be an available option.
+  */
+
+  public void doOperationShowEmployee(int choice){
+    switch(choice){
       case 1:
-      System.out.print("Selecciona un entrenador principal");
-      System.out.print(myClub.showNameOptionMainCoachTeam());
-      index1 = sc.nextInt()-1;
-      sc.nextLine();
-      System.out.println(myClub.newPriceMarketCoach(index1));
+      System.out.print(myClub.showDataMainCoach());
+      System.out.print(myClub.showDataAsistentCoach());
+      System.out.print(myClub.showDataPlayer());
       break;
       case 2:
-      System.out.println("Selecciona un jugador");
-      System.out.print(myClub.showNameOptionPlayer());
-      index1 = sc.nextInt()-1;
-      sc.nextLine();
-      System.out.print(myClub.newPriceMarketPlayer(index1));
+      showTypeEmployee();
+      int option = sc.nextInt();
+      switch(option){
+        case 1:
+        System.out.print(myClub.showDataMainCoach());
+        break;
+        case 2:
+        System.out.print(myClub.showDataAsistentCoach());
+        break;
+        case 3:
+        System.out.print(myClub.showDataPlayer());
+        break;
+        default:
+        System.out.println("Ingresa una opcion valida");
+      }
       break;
       default:
       System.out.println("Ingresa una opcion valida");
@@ -846,35 +970,15 @@ public class Menu{
   }
 
   /**
-  *It allows to calculate the market level of a main player or coach. <br>
-  *<b>pre: </b> At least one head coach or player must exist, option 12.
-  *<b>post: </b> The market level of the selected employee is ###. <br>
+  *Options to see the type of employee information, individual by type or group <br>
+  *<b>pre: </b> Option 6 has been selected.
+  *<b>post: </b> What type of data you want to see, group or individual by type. <br>
   */
 
-  public void calculateLevel(){
-    int index1 = 0;
-    System.out.println("A que tipo de empleado deseas calcularle el nivel");
-    System.out.println("[1] Entrenador Principal \n[2] Jugador");
-    int option = sc.nextInt();
-    sc.nextLine();
-    switch(option){
-      case 1:
-      System.out.print("Selecciona un entrenador principal");
-      System.out.print(myClub.showNameOptionMainCoachTeam());
-      index1 = sc.nextInt()-1;
-      sc.nextLine();
-      System.out.println(myClub.newLevelCoach(index1));
-      break;
-      case 2:
-      System.out.println("Selecciona un jugador");
-      System.out.print(myClub.showNameOptionPlayer());
-      index1 = sc.nextInt()-1;
-      sc.nextLine();
-      System.out.print(myClub.newLevelPlayer(index1));
-      break;
-      default:
-      System.out.println("Ingresa una opcion valida");
-    }
+  public void showOptionDataEmployee(){
+    System.out.println("Que deseas ver");
+    System.out.println("[1] La informacion de todos los empleados");
+    System.out.println("[2] La informacion del empleado segun el tipo");
   }
 
   public void showTwoDressingRoom(){
@@ -888,7 +992,7 @@ public class Menu{
 
   public void selectShowLineUp(){
     System.out.println("Selecciona un equipo");
-    System.out.print(myClub.showNameNewTeam());
+    System.out.print(myClub.showNameTeam());
     int index1 = sc.nextInt()-1;
     sc.nextLine();
     System.out.println("Selecciona la alineacion que deseas ver");

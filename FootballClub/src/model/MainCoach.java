@@ -102,8 +102,8 @@ Translated with www.DeepL.com/Translator (free version)
   @Override
   public double lvlMarket(){
     double lvlMarketCoach = 0;
-    lvlMarketCoach = 5+(getAmountWinner()/10);
-    return 0.0;
+    lvlMarketCoach = 5+(getAmountWinner()*1.0/10);
+    return lvlMarketCoach;
   }
 
   /**
