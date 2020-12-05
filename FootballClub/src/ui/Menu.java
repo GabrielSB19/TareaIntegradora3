@@ -27,6 +27,9 @@ public class Menu{
   private static final int CALCULATEPRICEMARKET = 11;
   private static final int CALCULATELEVEL = 12;
   private static final int SHOWINFOCLUB = 13;
+  private static final int SHOWPOSITIONSECTOROFFICE = 14;
+  private static final int SHOWPOSITIONDRESSING = 15;
+  private static final int SHOWFORMATIONINFORMAT = 16;
   private static final int EXIT = 0;
 
   /*
@@ -40,7 +43,7 @@ public class Menu{
   /**
   *Welcome to the user who will run the program. <br>
   *<b>pre: </b><br>
-  *<b>post: </b> The user has been welcomed <br>
+  *<b>post: </b> The user has been welcomed. <br>
   */
 
   public static void welcomeToTheClub(){
@@ -71,6 +74,9 @@ public class Menu{
     System.out.println("[11] Calcular el precio de mercado de los jugadores y entrenadores");
     System.out.println("[12] Calcular el nivel de los jugadores y entrenadores");
     System.out.println("[13] Ver la informacion del club");
+    System.out.println("[14] Ver la posicion de los entrenadores en el sector de oficinas");
+    System.out.println("[15] Ver la posicion de los jugadores en los camerinos");
+    System.out.println("[16] Ver las alineaciones en el campo");
     System.out.println("[0] Salir");
     System.out.println("*******************************************");
   }
@@ -141,6 +147,15 @@ public class Menu{
       case SHOWINFOCLUB:
       System.out.print(myClub.showInformationClub());
       break;
+      case SHOWPOSITIONSECTOROFFICE:
+      System.out.print(myClub.showSectorOffice());
+      break;
+      case SHOWPOSITIONDRESSING:
+      showTwoDressingRoom();
+      break;
+      case SHOWFORMATIONINFORMAT:
+      selectShowLineUp();
+      break;
       case EXIT:
       System.exit(0);
       break;
@@ -161,7 +176,7 @@ public class Menu{
       showMenu();
       option = readOption();
       doOperation(option);
-    } while(option != 15);
+    } while(option != 18);
   }
 
   /**
@@ -860,5 +875,25 @@ public class Menu{
       default:
       System.out.println("Ingresa una opcion valida");
     }
+  }
+
+  public void showTwoDressingRoom(){
+    System.out.println("Cual camerino deseas ver");
+    System.out.println("[1] Camerino 1 (equipo 1) \n[2] Camerino 2 (equipo 2)");
+    System.out.println("Recuerda que si deseas ver los camerinos deben existir los equipos");
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    System.out.print(myClub.showDressingRoom(index1));
+  }
+
+  public void selectShowLineUp(){
+    System.out.println("Selecciona un equipo");
+    System.out.print(myClub.showNameNewTeam());
+    int index1 = sc.nextInt()-1;
+    sc.nextLine();
+    System.out.println("Selecciona la alineacion que deseas ver");
+    System.out.print(myClub.showFormationWithOutFormat(index1));
+    int index2 = sc.nextInt()-1;
+    System.out.print(myClub.showFieldLineUpInTeam(index1, index2));
   }
 }

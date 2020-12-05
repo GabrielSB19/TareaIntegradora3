@@ -223,7 +223,7 @@ public class Team{
   public String showNameOfPlayerInTeam(){
     String msg = "";
     for(int i = 0; i<NUM_MAX_PLAYER; i++){
-      if(playerTeam[i] == null){
+      if(playerTeam[i] != null){
         msg += "["+(i+1)+"]"+playerTeam[i].getNameEm()+"\n";
       }
     }
@@ -240,5 +240,23 @@ public class Team{
 
   public Player addNewPlayerToTheDressingRoom(int index2){
     return playerTeam[index2];
+  }
+
+  public String showNameLineUpFormation(){
+    String msg = "";
+    for(int i = 0; i<lineUpTeam.size(); i++){
+      msg += "["+(i+1)+"]"+lineUpTeam.get(i).getFormation()+"\n";
+    }
+    return msg;
+  }
+
+  public String showFieldLineUp(int index2){
+    String msg = "";
+    msg += "********** Alineacion ***********\n";
+    msg += lineUpTeam.get(index2).showNormalLineUp()+"\n";
+    msg += "***** Formacion en el campo *****\n";
+    msg += lineUpTeam.get(index2).showFielBinary()+"\n";
+    msg += "*********************************\n";
+    return msg;
   }
 }

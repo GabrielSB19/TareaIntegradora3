@@ -804,4 +804,65 @@ public class FootballClub{
     msg += "Si deseas ver la informacion de los equipo detallada selecciona la Opcion [7]\n";
     return msg;
   }
+
+  public String showSectorOffice(){
+    int [][] showEmployeeOffice = new int [HORIZONTALSECTOROFFICE][VERTICALSECTOROFFICE];
+    String msg = "";
+    for(int i = 0; i<HORIZONTALSECTOROFFICE; i++){
+      for(int j = 0; j<VERTICALSECTOROFFICE; j++){
+        if(sectorOffice[i][j] != null){
+          showEmployeeOffice[i][j] = 1;
+        }
+        else{
+          showEmployeeOffice[i][j] = 0;
+        }
+        msg += showEmployeeOffice[i][j]+" ";
+      }
+      msg += "\n";
+    }
+    return msg;
+  }
+
+  public String showDressingRoom(int index1){
+    int [][] showPlayerDressing1 = new int [HORIZONTALDRESSINGROOMA][VERTICALDRESSINGROOMA];
+    int [][] showPlayerDressing2 = new int [HORIZONTALDRESSINGROOMB][VERTICALDRESSINGROOMB];
+    String msg = "";
+    if(index1 == 0){
+      for(int i = 0; i<HORIZONTALDRESSINGROOMA; i++){
+        for(int j = 0; j<VERTICALDRESSINGROOMA; j++){
+          if(dressingRoom1[i][j] != null){
+            showPlayerDressing1[i][j] = 1;
+          }
+          else{
+            showPlayerDressing1[i][j] = 0;
+          }
+          msg += showPlayerDressing1[i][j]+" ";
+        }
+        msg += "\n";
+      }
+    }
+    else if(index1 == 1){
+      for(int i = 0; i<HORIZONTALDRESSINGROOMB; i++){
+        for(int j = 0; j<VERTICALDRESSINGROOMB; j++){
+          if(dressingRoom2[i][j] != null){
+            showPlayerDressing2[i][j] = 1;
+          }
+          else{
+            showPlayerDressing2[i][j] = 0;
+          }
+          msg += showPlayerDressing2[i][j]+" ";
+        }
+        msg += "\n";
+      }
+    }
+    return msg;
+  }
+
+  public String showFormationWithOutFormat(int index1){
+    return team[index1].showNameLineUpFormation();
+  }
+
+  public String showFieldLineUpInTeam(int index1, int index2){
+    return team[index1].showFieldLineUp(index2);
+  }
 }
