@@ -70,8 +70,8 @@ public class Menu{
     System.out.println("Que tipo de acciones deseas realizar");
     System.out.println("[1] Acciones relacionados con los empleados");
     System.out.println("[2] Acciones relacionadas con los equipos");
-    System.out.println("[3] Acciones relacionadas con mostrar informacion");
-    System.out.println("[4] Acciones relacionados con las instalaciones del club");
+    System.out.println("[3] Acciones relacionados con las instalaciones del club");
+    System.out.println("[4] Acciones relacionadas con mostrar informacion");
     System.out.println("[0] Salir del programa");
     System.out.println("*******************************************");
   }
@@ -181,35 +181,6 @@ public class Menu{
     }
   }
 
-/*
-      case SHOWDATATEAM:
-      System.out.print(myClub.showDataTeam());
-      break;
-      case ADDLINEUPTOTEAM:
-      addDataLineUp();
-      break;
-      case SHOWINFOCLUB:
-      System.out.print(myClub.showInformationClub());
-      break;
-      case SHOWPOSITIONSECTOROFFICE:
-      System.out.print(myClub.showSectorOffice());
-      break;
-      case SHOWPOSITIONDRESSING:
-      showTwoDressingRoom();
-      break;
-      case SHOWFORMATIONINFORMAT:
-      selectShowLineUp();
-      break;
-      case EXIT:
-      System.exit(0);
-      break;
-      default:
-      System.out.println("Ingresa una opcion valida");
-    }
-  }
-
-  */
-
   /**
   *Execute the option selected by the user. <br>
   *<b>pre: </b> An option has been selected <br>
@@ -313,7 +284,7 @@ public class Menu{
 
   /**
   *Allows you to add a head coach to the club <br>
-  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>pre: </b> You have selected the option related to employees. <br>
   *<b>post: </b> A head coach has been hired to the club. <br>
   */
 
@@ -392,7 +363,7 @@ public class Menu{
 
   /**
   *Allows you to add an assistant coach to the club <br>
-  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>pre: </b> You have selected the option related to employees. <br>
   *<b>post: </b> The assistant coach has been hired <br>
   */
 
@@ -449,7 +420,7 @@ public class Menu{
 
   /**
   *Allows you to add a player to the club. <br>
-  *<b>pre: </b> You should have selected option 1 to hire an employee. <br>
+  *<b>pre: </b> You have selected the option related to employees. <br>
   *<b>post: </b> A player has been hired. <br>
   */
 
@@ -517,7 +488,7 @@ public class Menu{
 
   /**
   *Allows you to select the type of employee for whom the data will be updated. <br>
-  *<b>pre: </b> At least one employee exists according to the selected type, besides selecting option 5.
+  *<b>pre: </b> At least one employee exists according to the selected type, besides selecting option related with employees. <br>
   *<b>post: </b> An employee's data has been updated<br>
   @param choice User's option to run. choice must be an available option.
   */
@@ -625,7 +596,7 @@ public class Menu{
 
   /**
   *It allows to calculate the market price of a main player or coach. <br>
-  *<b>pre: </b> At least one head coach or player must exist, option 11.
+  *<b>pre: </b> At least one head coach or player must exist, besides have selected option with employees. <br>
   *<b>post: </b> The market price of the selected employee is ###. <br>
   */
 
@@ -657,7 +628,7 @@ public class Menu{
 
   /**
   *It allows to calculate the market level of a main player or coach. <br>
-  *<b>pre: </b> At least one head coach or player must exist, option 12.
+  *<b>pre: </b> At least one head coach or player must exist. <br>
   *<b>post: </b> The market level of the selected employee is ###. <br>
   */
 
@@ -709,7 +680,7 @@ public class Menu{
 
   /**
   *Allows you to select the type of employee and the employee to be added to a team. <br>
-  *<b>pre: </b> At least one employee of the selected employee type must be hired and have selected option 4.
+  *<b>pre: </b> At least one employee of the selected employee type must be hired. <br>
   *<b>post: </b> An employee has been added to a team <br>
   */
 
@@ -738,7 +709,7 @@ public class Menu{
 
   /**
   *Allows you to select the head coach to add to a team. <br>
-  *<b>pre: </b> At least one head coach and team exists, besides you can only add one per team. <br>
+  *<b>pre: </b> At least one head coach and team exists, besides you can only add one per team and and cannot be repeated. <br>
   *<b>post: </b> A head coach has been added to the selected team <br>
   @return index2
   */
@@ -752,7 +723,7 @@ public class Menu{
 
   /**
   *Allows you to select an assistant coach to add to a team. <br>
-  *<b>pre: </b> At least one assistant coach and team exists, besides you can only add three per team. <br>
+  *<b>pre: </b> At least one assistant coach and team exists, besides you can only add three per team and and cannot be repeated. <br>
   *<b>post: </b> An assistant coach has been added to the selected team <br>
   @return index3
   */
@@ -766,7 +737,7 @@ public class Menu{
 
   /**
   *Allows you to select a player to add to a team. <br>
-  *<b>pre: </b> At least one player and team exists, moreover you can only add up to 25 players per team. <br>
+  *<b>pre: </b> At least one player and team exists, moreover you can only add up to 25 players per team and and cannot be repeated. <br>
   *<b>post: </b> The player has been added to the selected team <br>
   @return index4
   */
@@ -780,7 +751,7 @@ public class Menu{
 
   /**
   *It allows to determine the tactic of an alignment. <br>
-  *<b>pre: </b> You must have selected the option to create an alignment, option 8.
+  *<b>pre: </b> You must have selected the option to create an alignment. <br>
   *<b>post: </b>The tactic of the alignment was determined. <br>
   @return newTactic
   */
@@ -851,7 +822,7 @@ public class Menu{
 
   /**
   *Allows to add the trainers to the offices. <br>
-  *<b>pre: </b> At least one trainer of any kind exists, in addition to selecting option 9.
+  *<b>pre: </b> At least one trainer of any kind exists. <br>
   *<b>post: </b> A coach has been added to the office. <br>
   */
 
@@ -886,7 +857,7 @@ public class Menu{
 
   /**
   *Allows you to add a player to the dressing room according to the team he belongs to. <br>
-  *<b>pre: </b> At least one player exists in a team that must also exister, option 10.
+  *<b>pre: </b> At least one player exists in a team that must also exister. <br>
   *<b>post: </b> A player has been added to the team's dressing room <br>
   */
 
@@ -935,8 +906,8 @@ public class Menu{
 
   /**
   *Allows to show the information of the employees, according to the selected type. <br>
-  *<b>pre: </b>At least one employee exists, in addition to selecting option 6.
-  *<b>post: </b> Employees' information has been shown<br>
+  *<b>pre: </b>At least one employee exists, in addition to selecting. <br>
+  *<b>post: </b> Employees' information has been shown. <br>
   @param choice User's option to run. choice must be an available option.
   */
 
@@ -971,7 +942,7 @@ public class Menu{
 
   /**
   *Options to see the type of employee information, individual by type or group <br>
-  *<b>pre: </b> Option 6 has been selected.
+  *<b>pre: </b><br>
   *<b>post: </b> What type of data you want to see, group or individual by type. <br>
   */
 
@@ -981,6 +952,12 @@ public class Menu{
     System.out.println("[2] La informacion del empleado segun el tipo");
   }
 
+  /**
+  *Allows to show the dressing rooms of the teams where the players are <br>
+  *<b>pre: </b> At least one player must be on a team and in a dressing room. <br>
+  *<b>post: </b> The position of the players in the dressing rooms <br>
+  */
+
   public void showTwoDressingRoom(){
     System.out.println("Cual camerino deseas ver");
     System.out.println("[1] Camerino 1 (equipo 1) \n[2] Camerino 2 (equipo 2)");
@@ -989,6 +966,12 @@ public class Menu{
     sc.nextLine();
     System.out.print(myClub.showDressingRoom(index1));
   }
+
+  /**
+  *Allows you to select the alignment you want to see in the field. <br>
+  *<b>pre: </b> At least one alignment exists in the selected equipment. <br>
+  *<b>post: </b> The alignment selected in the field. <br>
+  */
 
   public void selectShowLineUp(){
     System.out.println("Selecciona un equipo");

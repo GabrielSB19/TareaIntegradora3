@@ -814,6 +814,13 @@ public class FootballClub{
     return msg;
   }
 
+  /**
+  *Allows to show the position of the coaches in the office sector. <br>
+  *<b>pre: </b><br>
+  *<b>post:</b> Shows the position of the trainers in the offices. <br>
+  @return msg
+  */
+
   public String showSectorOffice(){
     int [][] showEmployeeOffice = new int [HORIZONTALSECTOROFFICE][VERTICALSECTOROFFICE];
     String msg = "";
@@ -831,6 +838,14 @@ public class FootballClub{
     }
     return msg;
   }
+
+  /**
+  *Allows to show the position of the players in the dressing room. <br>
+  *<b>pre: </b><br>
+  *<b>post:</b> Show the position of the players in the dressing room <br>
+  @param index1 shows the selected dressing room. index1 = 1 or 2
+  @return msg
+  */
 
   public String showDressingRoom(int index1){
     int [][] showPlayerDressing1 = new int [HORIZONTALDRESSINGROOMA][VERTICALDRESSINGROOMA];
@@ -867,9 +882,26 @@ public class FootballClub{
     return msg;
   }
 
+  /**
+  *Show the formation in the N-N-N form. <br>
+  *<b>pre: </b> There must be an alignment in the selected equipment. <br>
+  *<b>post:</b> Shows the team formations. <br>
+  @param index1 shows the selected equipment. index1 = 1 or 2
+  @return msg
+  */
+
   public String showFormationWithOutFormat(int index1){
     return team[index1].showNameLineUpFormation();
   }
+
+  /**
+  *Allows you to select the equipment and alignment which will be displayed in the fields. <br>
+  *<b>pre: </b> There must be at least one alignment in the selected equipment. <br>
+  *<b>post:</b> Shows all the general information of the equipment. <br>
+  @param index1 Selected equipment. index1 = 1 or 2
+  @param index2 Selected formation. index2 = greater than zero and index2 != null
+  @return msg
+  */
 
   public String showFieldLineUpInTeam(int index1, int index2){
     return team[index1].showFieldLineUp(index2);

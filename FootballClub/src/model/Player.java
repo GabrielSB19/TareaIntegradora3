@@ -200,5 +200,4 @@ public class Player extends Employee implements CalculateOperation{
     msg += "************************************\n";
     return msg;
   }
-
 }
